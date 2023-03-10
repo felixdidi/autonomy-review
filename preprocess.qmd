@@ -1,0 +1,166 @@
+---
+title: "Preprocessing"
+author: "Felix Dietrich & Leonard Reinecke"
+date: "last-modified"
+categories:
+  - "Autonomy"
+  - "Digital Media"
+  - "Self-Determination"
+---
+
+## Load Data
+
+```{r}
+#| label: load data
+#| message: false
+
+# libs
+library(tidyverse)
+library(RVerbalExpressions)
+
+# set seed
+set.seed(42)
+
+# read data
+data <- read_rds("data/paper_raw_data.rds")
+
+```
+
+## Relevant Papers
+
+```{r}
+#| label: relevant papers
+#| message: false
+
+# define search term
+regex_cmc <-
+  rx_with_any_case() %>% 
+  rx_either_of(
+    "internet",
+    "cyber",
+    "online media",
+    "online communication",
+    "online social network",
+    "online communit",
+    "chat",
+    "email",
+    "computer-mediated",
+    "mobile phone",
+    "smartphone",
+    "instant mess",
+    "mobile mess",
+    "social media",
+    rx() %>% rx_find("social ") %>% rx_find("network") %>% rx_anything(mode = "lazy") %>% rx_find("site") %>% rx_anything(mode = "lazy"),
+    "information and communication technolog",
+    "facebook",
+    "instagram",
+    "snapchat",
+    "twitter",
+    "wechat",
+    "weibo",
+    "texting")
+
+# select relevant papers
+selection <- data %>% 
+  filter(str_detect(abstract, regex_cmc) | str_detect(title, regex_cmc)) %>% 
+  filter(publication_type == "journal-article")
+
+# read in a list of all concepts (provided by OpenAlex)
+concepts <- read_csv("data/concepts.csv")
+
+# save all associated concepts
+# otherwise will be lost in next step
+all_concepts <- selection %>% 
+  select(id, concept) %>% 
+  mutate(all_concepts = concept) %>% 
+  select(-concept)
+
+# save papers that only have autonomy concept
+# otherwise will be lost in next step
+only_autonomy_concept <- selection %>% 
+  unnest(concept) %>% 
+  group_by(id) %>% 
+  filter(n() == 1) %>% 
+  ungroup()
+
+# filter most likely concept for each paper
+# that is, lowest concept_lecel and and highest concept_score
+selected_papers <- selection %>% 
+  unnest(concept) %>% 
+  filter(concept_name != "Autonomy") %>% 
+  group_by(id) %>% 
+  arrange(concept_lecel, .by_group = TRUE) %>%
+  filter(row_number() == 1) %>% 
+  ungroup()
+
+# combine with saved only_autonomy and rejoin all concepts variable
+selected_papers <- bind_rows(selected_papers, only_autonomy_concept)
+selected_papers <- left_join(selected_papers, all_concepts)
+selected_papers <- selected_papers %>% rename(main_concept = concept_name)
+
+# inspect concepts
+selected_papers %>% 
+  count(main_concept) %>% 
+  arrange(desc(n))
+
+# select only concepts of interest
+coi <- c(
+  "Advertising",
+  "Autonomy",
+  "Business",
+  "Economics",
+  "Computer science",
+  "Political science",
+  "Psychology",
+  "Public relations",
+  "Sociology"
+)
+
+selected_papers <- selected_papers %>% 
+  filter(main_concept %in% coi)
+
+# check if abstract or covariates of interest have missing values
+table(is.na(selected_papers$abstract))
+table(is.na(selected_papers$year))
+table(is.na(selected_papers$main_concept))
+
+```
+
+## Clean
+
+```{r}
+#| label: clean
+
+# clean
+clean_papers <- selected_papers %>% 
+  # clean punctuation
+  mutate(clean_abstract = str_replace_all(abstract, "[:punct:]", "")) %>% 
+  # clean symbols
+  mutate(clean_abstract = str_replace_all(clean_abstract, "[:symbol:]", "")) %>% 
+  # clean numbers
+  mutate(clean_abstract = str_replace_all(clean_abstract, "[:digit:]", "")) %>% 
+  #clean hashtags
+  mutate(clean_abstract = str_replace_all(clean_abstract, "#\\w+", "")) %>% 
+  # clean unnecessary white spaces
+  mutate(clean_abstract = str_squish(clean_abstract)) %>% 
+  # detect language
+  mutate(cld2_lang = cld2::detect_language(clean_abstract)) %>% 
+  # and filter out non english abstracts
+  filter(cld2_lang == "en")
+
+# check again if abstract or covariates of interest have missing values
+table(is.na(clean_papers$clean_abstract))
+table(is.na(clean_papers$year))
+table(is.na(clean_papers$main_concept))
+
+# add numeric id variable
+clean_papers <- clean_papers %>% 
+  mutate(openalex_id = id) %>% 
+  select(-id) %>% 
+  rowid_to_column(var = "doc_id")
+
+# save
+clean_papers %>% 
+  write_rds("data/clean_papers.rds", compress = "gz")
+
+```

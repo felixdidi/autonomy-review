@@ -1,0 +1,58 @@
+---
+title: "Get Papers from OpenAlex"
+author: "Felix Dietrich & Leonard Reinecke"
+date: "last-modified"
+categories:
+  - "Autonomy"
+  - "Digital Media"
+  - "Self-Determination"
+---
+
+This is the documentation of the code that was used to scrape all relevant
+papers from the OpenAlex API on September 12, 2022.
+
+```{r}
+#| label: get data
+#| eval: false
+
+# libs
+library(tidyverse)
+library(openalexR)
+
+# get data
+data <-
+  oa_request(
+    query_url = "https://api.openalex.org/works?filter=concepts.id:C65414064",
+    verbose = TRUE
+  )
+
+# transform list to tibble
+test <-
+  data %>%
+  oa2df(entity = "works",
+        verbose = TRUE) %>% 
+  as_tibble()
+
+# reformat
+data <- data %>% 
+  rename(
+    title = TI,
+    authors = author,
+    abstract = AB,
+    venue = SO,
+    venue_id = SO_ID,
+    publisher = PU,
+    url = URL,
+    open_access = OA,
+    total_cites = TC,
+    cites_by_year = TCperYear,
+    year = PY, 
+    doi = DI,
+    publication_type = DT,
+    referenced_works = CR
+  ) %>% 
+  select(-IS, -ids) %>% 
+  relocate(year, .before = pubdata)
+
+```
+

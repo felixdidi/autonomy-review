@@ -1,0 +1,26 @@
+## `r paste("Doc ", clean_papers[i,]$doc_id, ": <b>", clean_papers[i,]$title, "</b>  \n")`
+
+```{r}
+#| results: asis
+#| echo: false
+
+cat(paste0("<", clean_papers[i,]$url, ">   \n"))
+
+authors <- possibly(~ clean_papers[i,] %>% unnest(authors) %>% pull(au_name),
+                      otherwise = "No Author Names")()
+
+cat(paste("<i>", authors, "</i>   \n"))
+
+text <- clean_papers[i,]$abstract
+
+for (highlight in seq_along(highlighter)) {
+  text <-
+    gsub(highlighter[[highlight]],
+         paste0("<span style='background-color:",
+                names(highlighter)[highlight], "'>\\1</span>"),
+         text
+    )
+  }
+
+cat("  \n", text, "  \n  \n")
+```

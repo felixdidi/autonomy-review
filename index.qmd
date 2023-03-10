@@ -1,0 +1,60 @@
+---
+title: "What constitutes autonomy in digital communication?"
+subtitle: "A scoping review of digital autonomy"
+author: "Felix Dietrich & Leonard Reinecke"
+date: "last-modified"
+categories:
+  - "Autonomy"
+  - "Digital Media"
+  - "Self-Determination"
+bibliography:  "bibliography/r.bib"
+csl: "bibliography/apa.csl"
+---
+
+## Setup
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+
+# uncomment r_refs() below if changes to packages have been made!
+
+# restore packages from renv.lock
+renv::activate()
+renv::restore(prompt = FALSE)
+
+# load packages
+library(tidyverse)
+library(RVerbalExpressions)
+library(udpipe)
+library(tidytext)
+library(cld2)
+library(stm)
+library(papaja)
+library(openalexR)
+library(ggpubr)
+
+# create bib file with r-packages
+# r_refs(file = "bibliography/r.bib")
+
+# credit packages
+r_citations <- cite_r("bibliography/r.bib",
+                      footnote = FALSE,
+                      withhold = FALSE,
+                      pkgs = c("tidyverse",
+                               "RVerbalExpressions",
+                               "udpipe",
+                               "quanteda",
+                               "tidytext",
+                               "cld2",
+                               "stm",
+                               "papaja",
+                               "openalexR",
+                               "ggpubr"
+                               ))
+```
+
+We used `r r_citations` for our analyses and to compile this report.
+
+## References

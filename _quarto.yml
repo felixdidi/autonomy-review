@@ -1,0 +1,83 @@
+project:
+  type: website
+  output-dir: docs
+  lib-dir: site_libs
+  render:
+    - "*.qmd"
+    - "!etc/abstract_helper.qmd"
+
+website:
+  sidebar:
+    style: "floating"
+    align: "center"
+    search: true
+    contents:
+      - section: "General"
+        contents:
+          - href: index.qmd
+            text: "Overview"
+      - section: "Analyses"
+        contents:
+          - href: get_data.qmd
+            text: "Get Papers"
+          - href: preprocess.qmd
+            text: "Preprocessing"
+          - href: tm.qmd
+            text: "Topic Modeling"
+      - section: "Abstracts"
+        contents:
+          - href: "abstracts/abstracts_1-100.qmd"
+            text: "1-100"
+          - href: "abstracts/abstracts_101-200.qmd"
+            text: "101-200"
+          - href: "abstracts/abstracts_201-300.qmd"
+            text: "201-300"
+          - href: "abstracts/abstracts_301-400.qmd"
+            text: "301-400"
+          - href: "abstracts/abstracts_401-500.qmd"
+            text: "401-500"
+          - href: "abstracts/abstracts_501-600.qmd"
+            text: "501-600"
+          - href: "abstracts/abstracts_601-700.qmd"
+            text: "601-700"
+          - href: "abstracts/abstracts_701-800.qmd"
+            text: "701-800"
+          - href: "abstracts/abstracts_801-900.qmd"
+            text: "801-900"
+          - href: "abstracts/abstracts_901-1000.qmd"
+            text: "901-1000"
+          - href: "abstracts/abstracts_1001-1100.qmd"
+            text: "1001-1100"
+          - href: "abstracts/abstracts_1101-1200.qmd"
+            text: "1101-1200"
+          - href: "abstracts/abstracts_1201-1300.qmd"
+            text: "1201-1300"
+          - href: "abstracts/abstracts_1301-1400.qmd"
+            text: "1301-1400"
+          - href: "abstracts/abstracts_1401-1500.qmd"
+            text: "1401-1500"
+          - href: "abstracts/abstracts_1501-1600.qmd"
+            text: "1501-1600"
+          - href: "abstracts/abstracts_1601-1700.qmd"
+            text: "1601-1700"
+          - href: "abstracts/abstracts_1701-1744.qmd"
+            text: "1701-1744"
+
+format:
+  html:
+    toc: true
+    number-sections: false
+    smooth-scroll: true
+    footnotes-hover: true
+    code-fold: false
+    code-tools: true
+    code-line-numbers: true
+    highlight-style: gruvbox
+theme:
+  light: [cosmo, theme.scss]
+  
+# execute:
+#   cache: true
+
+
+

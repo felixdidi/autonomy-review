@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Felix Dietrich &amp; Leonard Reinecke">
+<meta name="dcterms.date" content="2023-03-09">
+
+<title>Inspect Abstracts</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Inspect Abstracts</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">General</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Analyses</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../get_data.html" class="sidebar-item-text sidebar-link">Get Papers</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../preprocess.html" class="sidebar-item-text sidebar-link">Preprocessing</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tm.html" class="sidebar-item-text sidebar-link">Topic Modeling</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Abstracts</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_1-100.html" class="sidebar-item-text sidebar-link">1-100</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_101-200.html" class="sidebar-item-text sidebar-link">101-200</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_201-300.html" class="sidebar-item-text sidebar-link">201-300</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_301-400.html" class="sidebar-item-text sidebar-link">301-400</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_401-500.html" class="sidebar-item-text sidebar-link">401-500</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_501-600.html" class="sidebar-item-text sidebar-link">501-600</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_601-700.html" class="sidebar-item-text sidebar-link">601-700</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_701-800.html" class="sidebar-item-text sidebar-link">701-800</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_801-900.html" class="sidebar-item-text sidebar-link">801-900</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_901-1000.html" class="sidebar-item-text sidebar-link">901-1000</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_1001-1100.html" class="sidebar-item-text sidebar-link">1001-1100</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_1101-1200.html" class="sidebar-item-text sidebar-link">1101-1200</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_1201-1300.html" class="sidebar-item-text sidebar-link">1201-1300</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_1301-1400.html" class="sidebar-item-text sidebar-link">1301-1400</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_1401-1500.html" class="sidebar-item-text sidebar-link">1401-1500</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_1501-1600.html" class="sidebar-item-text sidebar-link">1501-1600</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_1601-1700.html" class="sidebar-item-text sidebar-link">1601-1700</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abstracts/abstracts_1701-1744.html" class="sidebar-item-text sidebar-link active">1701-1744</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#doc-1701-building-trust-and-responsibility-into-autonomous-human-machine-teams" id="toc-doc-1701-building-trust-and-responsibility-into-autonomous-human-machine-teams" class="nav-link active" data-scroll-target="#doc-1701-building-trust-and-responsibility-into-autonomous-human-machine-teams">Doc 1701 : <b> Building trust and responsibility into autonomous human-machine teams </b></a></li>
+  <li><a href="#doc-1702-distance-language-learning-as-school-learners-perceive-it" id="toc-doc-1702-distance-language-learning-as-school-learners-perceive-it" class="nav-link" data-scroll-target="#doc-1702-distance-language-learning-as-school-learners-perceive-it">Doc 1702 : <b> DISTANCE LANGUAGE LEARNING AS SCHOOL LEARNERS PERCEIVE IT </b></a></li>
+  <li><a href="#doc-1703-artificial-intelligence-in-medical-practice-regulative-issues-and-perspectives." id="toc-doc-1703-artificial-intelligence-in-medical-practice-regulative-issues-and-perspectives." class="nav-link" data-scroll-target="#doc-1703-artificial-intelligence-in-medical-practice-regulative-issues-and-perspectives.">Doc 1703 : <b> ARTIFICIAL INTELLIGENCE IN MEDICAL PRACTICE: REGULATIVE ISSUES AND PERSPECTIVES. </b></a></li>
+  <li><a href="#doc-1704-call-for-teaching-grammar-a-comparison-of-wbi-and-traditional-method" id="toc-doc-1704-call-for-teaching-grammar-a-comparison-of-wbi-and-traditional-method" class="nav-link" data-scroll-target="#doc-1704-call-for-teaching-grammar-a-comparison-of-wbi-and-traditional-method">Doc 1704 : <b> CALL FOR TEACHING GRAMMAR: A COMPARISON OF WBI AND TRADITIONAL METHOD </b></a></li>
+  <li><a href="#doc-1705-algorithmic-distortion-of-informational-landscapes" id="toc-doc-1705-algorithmic-distortion-of-informational-landscapes" class="nav-link" data-scroll-target="#doc-1705-algorithmic-distortion-of-informational-landscapes">Doc 1705 : <b> Algorithmic Distortion of Informational Landscapes </b></a></li>
+  <li><a href="#doc-1706-is-purity-a-distinct-and-homogeneous-domain-in-moral-psychology" id="toc-doc-1706-is-purity-a-distinct-and-homogeneous-domain-in-moral-psychology" class="nav-link" data-scroll-target="#doc-1706-is-purity-a-distinct-and-homogeneous-domain-in-moral-psychology">Doc 1706 : <b> Is purity a distinct and homogeneous domain in moral psychology? </b></a></li>
+  <li><a href="#doc-1707-social-media-and-its-negative-impacts-on-autonomy" id="toc-doc-1707-social-media-and-its-negative-impacts-on-autonomy" class="nav-link" data-scroll-target="#doc-1707-social-media-and-its-negative-impacts-on-autonomy">Doc 1707 : <b> Social Media and its Negative Impacts on Autonomy </b></a></li>
+  <li><a href="#doc-1708-blended-teaching-strategies-of-college-english-translation-under-the-background-of-internet" id="toc-doc-1708-blended-teaching-strategies-of-college-english-translation-under-the-background-of-internet" class="nav-link" data-scroll-target="#doc-1708-blended-teaching-strategies-of-college-english-translation-under-the-background-of-internet">Doc 1708 : <b> Blended Teaching Strategies of College English Translation under the Background of Internet </b></a></li>
+  <li><a href="#doc-1709-discursividades-no-material-didático-de-ensino-de-língua-materna-sobre-metodologias-ativas" id="toc-doc-1709-discursividades-no-material-didático-de-ensino-de-língua-materna-sobre-metodologias-ativas" class="nav-link" data-scroll-target="#doc-1709-discursividades-no-material-didático-de-ensino-de-língua-materna-sobre-metodologias-ativas">Doc 1709 : <b> Discursividades no material didático de ensino de língua materna sobre metodologias ativas </b></a></li>
+  <li><a href="#doc-1710-mobile-phones-dependency-and-psychological-wellbeing-of-students-in-selected-secondary-schools-in-nairobi-county--kenya" id="toc-doc-1710-mobile-phones-dependency-and-psychological-wellbeing-of-students-in-selected-secondary-schools-in-nairobi-county--kenya" class="nav-link" data-scroll-target="#doc-1710-mobile-phones-dependency-and-psychological-wellbeing-of-students-in-selected-secondary-schools-in-nairobi-county--kenya">Doc 1710 : <b> Mobile Phones Dependency and Psychological Wellbeing of Students in Selected Secondary Schools in Nairobi County- Kenya </b></a></li>
+  <li><a href="#doc-1711-the-ethical-dilemma-of-mobile-phone-data-monitoring-during-covid-19-the-case-for-south-korea-and-the-united-states" id="toc-doc-1711-the-ethical-dilemma-of-mobile-phone-data-monitoring-during-covid-19-the-case-for-south-korea-and-the-united-states" class="nav-link" data-scroll-target="#doc-1711-the-ethical-dilemma-of-mobile-phone-data-monitoring-during-covid-19-the-case-for-south-korea-and-the-united-states">Doc 1711 : <b> The ethical dilemma of mobile phone data monitoring during COVID-19: The case for South Korea and the United States </b></a></li>
+  <li><a href="#doc-1712-smartphone-apps-as-a-motivating-tool-in-english-language-learning" id="toc-doc-1712-smartphone-apps-as-a-motivating-tool-in-english-language-learning" class="nav-link" data-scroll-target="#doc-1712-smartphone-apps-as-a-motivating-tool-in-english-language-learning">Doc 1712 : <b> Smartphone apps as a motivating tool in English language learning </b></a></li>
+  <li><a href="#doc-1713-anti-corruption-digital-solutions-the-ukrainian-experience-and-the-peculiarities-of-their-implementation-in-a-state-of-war" id="toc-doc-1713-anti-corruption-digital-solutions-the-ukrainian-experience-and-the-peculiarities-of-their-implementation-in-a-state-of-war" class="nav-link" data-scroll-target="#doc-1713-anti-corruption-digital-solutions-the-ukrainian-experience-and-the-peculiarities-of-their-implementation-in-a-state-of-war">Doc 1713 : <b> ANTI-CORRUPTION DIGITAL SOLUTIONS: THE UKRAINIAN EXPERIENCE AND THE PECULIARITIES OF THEIR IMPLEMENTATION IN A STATE OF WAR </b></a></li>
+  <li><a href="#doc-1714-associations-between-basic-psychological-need-satisfaction-and-motivation-underpinning-daily-activity-participation-among-community-dwelling-stroke-survivors-an-ecological-momentary-assessment-study" id="toc-doc-1714-associations-between-basic-psychological-need-satisfaction-and-motivation-underpinning-daily-activity-participation-among-community-dwelling-stroke-survivors-an-ecological-momentary-assessment-study" class="nav-link" data-scroll-target="#doc-1714-associations-between-basic-psychological-need-satisfaction-and-motivation-underpinning-daily-activity-participation-among-community-dwelling-stroke-survivors-an-ecological-momentary-assessment-study">Doc 1714 : <b> Associations Between Basic Psychological Need Satisfaction and Motivation Underpinning Daily Activity Participation Among Community-dwelling Stroke Survivors: An Ecological Momentary Assessment Study </b></a></li>
+  <li><a href="#doc-1715-a-glimpse-of-physical-layer-decision-mechanisms-facts-challenges-and-remedies" id="toc-doc-1715-a-glimpse-of-physical-layer-decision-mechanisms-facts-challenges-and-remedies" class="nav-link" data-scroll-target="#doc-1715-a-glimpse-of-physical-layer-decision-mechanisms-facts-challenges-and-remedies">Doc 1715 : <b> A Glimpse of Physical Layer Decision Mechanisms: Facts, Challenges, and Remedies </b></a></li>
+  <li><a href="#doc-1716-ambidexterity-organizational-structure-and-types-of-innovations-in-technological-rd-institutes-in-brazil" id="toc-doc-1716-ambidexterity-organizational-structure-and-types-of-innovations-in-technological-rd-institutes-in-brazil" class="nav-link" data-scroll-target="#doc-1716-ambidexterity-organizational-structure-and-types-of-innovations-in-technological-rd-institutes-in-brazil">Doc 1716 : <b> Ambidexterity, organizational structure, and types of innovations in technological R&amp;D institutes in Brazil </b></a></li>
+  <li><a href="#doc-1717-digital-games-special-education" id="toc-doc-1717-digital-games-special-education" class="nav-link" data-scroll-target="#doc-1717-digital-games-special-education">Doc 1717 : <b> Digital games &amp; special education </b></a></li>
+  <li><a href="#doc-1718-bio-nfts-and-digital-liquidity" id="toc-doc-1718-bio-nfts-and-digital-liquidity" class="nav-link" data-scroll-target="#doc-1718-bio-nfts-and-digital-liquidity">Doc 1718 : <b> Bio NFTs and Digital Liquidity </b></a></li>
+  <li><a href="#doc-1719-the-problem-of-interactive-english-language-learning-in-distance-mode" id="toc-doc-1719-the-problem-of-interactive-english-language-learning-in-distance-mode" class="nav-link" data-scroll-target="#doc-1719-the-problem-of-interactive-english-language-learning-in-distance-mode">Doc 1719 : <b> The Problem of Interactive English Language Learning in Distance Mode </b></a></li>
+  <li><a href="#doc-1720-analyzing-customer-acceptance-of-the-internet-of-things-iot-in-the-retail-industry" id="toc-doc-1720-analyzing-customer-acceptance-of-the-internet-of-things-iot-in-the-retail-industry" class="nav-link" data-scroll-target="#doc-1720-analyzing-customer-acceptance-of-the-internet-of-things-iot-in-the-retail-industry">Doc 1720 : <b> Analyzing customer acceptance of the internet of things (IoT) in the retail industry </b></a></li>
+  <li><a href="#doc-1721-methodology-for-analyzing-the-manageability-of-country-communication-modes" id="toc-doc-1721-methodology-for-analyzing-the-manageability-of-country-communication-modes" class="nav-link" data-scroll-target="#doc-1721-methodology-for-analyzing-the-manageability-of-country-communication-modes">Doc 1721 : <b> Methodology for Analyzing the Manageability of Country Communication Modes </b></a></li>
+  <li><a href="#doc-1722-legal-path-of-rural-revitalization-for-decision-making-risk-prevention-of-internet-of-things-algorithm" id="toc-doc-1722-legal-path-of-rural-revitalization-for-decision-making-risk-prevention-of-internet-of-things-algorithm" class="nav-link" data-scroll-target="#doc-1722-legal-path-of-rural-revitalization-for-decision-making-risk-prevention-of-internet-of-things-algorithm">Doc 1722 : <b> Legal Path of Rural Revitalization for Decision-Making Risk Prevention of Internet of Things Algorithm </b></a></li>
+  <li><a href="#doc-1723-arena-pública-na-internet-em-defesa-da-universidade-pública-no-brasil-estratégias-de-uerjresiste" id="toc-doc-1723-arena-pública-na-internet-em-defesa-da-universidade-pública-no-brasil-estratégias-de-uerjresiste" class="nav-link" data-scroll-target="#doc-1723-arena-pública-na-internet-em-defesa-da-universidade-pública-no-brasil-estratégias-de-uerjresiste">Doc 1723 : <b> Arena pública na internet em defesa da universidade pública no Brasil: Estratégias de #UERJResiste </b></a></li>
+  <li><a href="#doc-1724-networked-gift-giving-ethno-religious-minority-youths-negotiation-of-status-and-social-ties-in-a-society-of-distrust" id="toc-doc-1724-networked-gift-giving-ethno-religious-minority-youths-negotiation-of-status-and-social-ties-in-a-society-of-distrust" class="nav-link" data-scroll-target="#doc-1724-networked-gift-giving-ethno-religious-minority-youths-negotiation-of-status-and-social-ties-in-a-society-of-distrust">Doc 1724 : <b> Networked gift-giving: Ethno-religious minority youths’ negotiation of status and social ties in a society of distrust </b></a></li>
+  <li><a href="#doc-1725-facilitating-or-inhibiting-the-role-of-enterprise-social-media-use-in-job-performance" id="toc-doc-1725-facilitating-or-inhibiting-the-role-of-enterprise-social-media-use-in-job-performance" class="nav-link" data-scroll-target="#doc-1725-facilitating-or-inhibiting-the-role-of-enterprise-social-media-use-in-job-performance">Doc 1725 : <b> Facilitating or inhibiting? The role of enterprise social media use in job performance </b></a></li>
+  <li><a href="#doc-1726-friendly-but-faulty-a-pilot-study-on-the-perceived-trust-of-older-adults-in-a-social-robot" id="toc-doc-1726-friendly-but-faulty-a-pilot-study-on-the-perceived-trust-of-older-adults-in-a-social-robot" class="nav-link" data-scroll-target="#doc-1726-friendly-but-faulty-a-pilot-study-on-the-perceived-trust-of-older-adults-in-a-social-robot">Doc 1726 : <b> Friendly but Faulty: A Pilot Study on the Perceived Trust of Older Adults in a Social Robot </b></a></li>
+  <li><a href="#doc-1727-uncovering-the-heterogeneity-in-fitness-app-use-a-latent-class-analysis-of-chinese-users" id="toc-doc-1727-uncovering-the-heterogeneity-in-fitness-app-use-a-latent-class-analysis-of-chinese-users" class="nav-link" data-scroll-target="#doc-1727-uncovering-the-heterogeneity-in-fitness-app-use-a-latent-class-analysis-of-chinese-users">Doc 1727 : <b> Uncovering the Heterogeneity in Fitness App Use: A Latent Class Analysis of Chinese Users </b></a></li>
+  <li><a href="#doc-1728-relationships-between-ict-use-for-task-and-social-functions-work-characteristics-and-employee-task-proficiency-and-job-satisfaction-does-age-matter" id="toc-doc-1728-relationships-between-ict-use-for-task-and-social-functions-work-characteristics-and-employee-task-proficiency-and-job-satisfaction-does-age-matter" class="nav-link" data-scroll-target="#doc-1728-relationships-between-ict-use-for-task-and-social-functions-work-characteristics-and-employee-task-proficiency-and-job-satisfaction-does-age-matter">Doc 1728 : <b> Relationships between ICT Use for Task and Social Functions, Work Characteristics, and Employee Task Proficiency and Job Satisfaction: Does Age Matter? </b></a></li>
+  <li><a href="#doc-1729-alert-plan-application-mysolutions---lived-experiences-of-users-with-a-serious-mental-illness" id="toc-doc-1729-alert-plan-application-mysolutions---lived-experiences-of-users-with-a-serious-mental-illness" class="nav-link" data-scroll-target="#doc-1729-alert-plan-application-mysolutions---lived-experiences-of-users-with-a-serious-mental-illness">Doc 1729 : <b> Alert plan-application “MySolutions” - lived experiences of users with a serious mental illness </b></a></li>
+  <li><a href="#doc-1730-positive-digital-communication-among-youth-the-development-and-validation-of-the-digital-flourishing-scale-for-adolescents" id="toc-doc-1730-positive-digital-communication-among-youth-the-development-and-validation-of-the-digital-flourishing-scale-for-adolescents" class="nav-link" data-scroll-target="#doc-1730-positive-digital-communication-among-youth-the-development-and-validation-of-the-digital-flourishing-scale-for-adolescents">Doc 1730 : <b> Positive digital communication among youth: The development and validation of the digital flourishing scale for adolescents </b></a></li>
+  <li><a href="#doc-1731-digital-literacy-the-case-of-côte-divoire-port-bouët-yopougon" id="toc-doc-1731-digital-literacy-the-case-of-côte-divoire-port-bouët-yopougon" class="nav-link" data-scroll-target="#doc-1731-digital-literacy-the-case-of-côte-divoire-port-bouët-yopougon">Doc 1731 : <b> Digital Literacy: The Case of Côte d’Ivoire (Port-Bouët, Yopougon) </b></a></li>
+  <li><a href="#doc-1732-the-use-of-information-and-communication-technology-as-learning-sources-in-english-language-learning" id="toc-doc-1732-the-use-of-information-and-communication-technology-as-learning-sources-in-english-language-learning" class="nav-link" data-scroll-target="#doc-1732-the-use-of-information-and-communication-technology-as-learning-sources-in-english-language-learning">Doc 1732 : <b> The Use of Information and Communication Technology as Learning Sources in English Language Learning </b></a></li>
+  <li><a href="#doc-1733-pedagogical-conditions-to-form-students-creativity" id="toc-doc-1733-pedagogical-conditions-to-form-students-creativity" class="nav-link" data-scroll-target="#doc-1733-pedagogical-conditions-to-form-students-creativity">Doc 1733 : <b> PEDAGOGICAL CONDITIONS TO FORM STUDENTS’ CREATIVITY </b></a></li>
+  <li><a href="#doc-1734-the-process-of-contemporary-gay-identity-development-in-china-the-influence-of-internet-use" id="toc-doc-1734-the-process-of-contemporary-gay-identity-development-in-china-the-influence-of-internet-use" class="nav-link" data-scroll-target="#doc-1734-the-process-of-contemporary-gay-identity-development-in-china-the-influence-of-internet-use">Doc 1734 : <b> The process of contemporary gay identity development in China: The influence of internet use </b></a></li>
+  <li><a href="#doc-1735-interaction-online-a-reevaluation" id="toc-doc-1735-interaction-online-a-reevaluation" class="nav-link" data-scroll-target="#doc-1735-interaction-online-a-reevaluation">Doc 1735 : <b> Interaction Online: A Reevaluation </b></a></li>
+  <li><a href="#doc-1736-when-compelled-to-fb-around-academic-texts-postgraduate-students-reflected-on-their-online-experience." id="toc-doc-1736-when-compelled-to-fb-around-academic-texts-postgraduate-students-reflected-on-their-online-experience." class="nav-link" data-scroll-target="#doc-1736-when-compelled-to-fb-around-academic-texts-postgraduate-students-reflected-on-their-online-experience.">Doc 1736 : <b> When Compelled to FB around Academic Texts: Postgraduate Students Reflected on Their Online Experience. </b></a></li>
+  <li><a href="#doc-1737-an-autonomy-supporting-cardiovascular-prevention-programme-practical-recommendations-from-self-determination-theory" id="toc-doc-1737-an-autonomy-supporting-cardiovascular-prevention-programme-practical-recommendations-from-self-determination-theory" class="nav-link" data-scroll-target="#doc-1737-an-autonomy-supporting-cardiovascular-prevention-programme-practical-recommendations-from-self-determination-theory">Doc 1737 : <b> An autonomy-supporting cardiovascular prevention programme: Practical recommendations from Self-Determination Theory </b></a></li>
+  <li><a href="#doc-1738-metodologia-do-desenvolvimento-um-estudo-de-criação-de-um-ambiente-de-e-learning-para-o-ensino-presencial-universitário" id="toc-doc-1738-metodologia-do-desenvolvimento-um-estudo-de-criação-de-um-ambiente-de-e-learning-para-o-ensino-presencial-universitário" class="nav-link" data-scroll-target="#doc-1738-metodologia-do-desenvolvimento-um-estudo-de-criação-de-um-ambiente-de-e-learning-para-o-ensino-presencial-universitário">Doc 1738 : <b> Metodologia do desenvolvimento: um estudo de criação de um ambiente de e-learning para o ensino presencial universitário </b></a></li>
+  <li><a href="#doc-1739-15-apps-every-principal-should-have-whether-fostering-collaboration-easing-communication-or-tracking-common-core-these-mission-critical-applications-keep-todays-principals-connected-with-their-colleagues-students-and-parents" id="toc-doc-1739-15-apps-every-principal-should-have-whether-fostering-collaboration-easing-communication-or-tracking-common-core-these-mission-critical-applications-keep-todays-principals-connected-with-their-colleagues-students-and-parents" class="nav-link" data-scroll-target="#doc-1739-15-apps-every-principal-should-have-whether-fostering-collaboration-easing-communication-or-tracking-common-core-these-mission-critical-applications-keep-todays-principals-connected-with-their-colleagues-students-and-parents">Doc 1739 : <b> 15 Apps Every Principal Should Have: Whether Fostering Collaboration, Easing Communication or Tracking Common Core, These Mission-Critical Applications Keep Today’s Principals Connected with Their Colleagues, Students and Parents </b></a></li>
+  <li><a href="#doc-1740-neither-autonomy-nor-elite-steering-a-political-communication-analysis-of-campaign-and-general-tweeting-in-the-2012-u.s.-election" id="toc-doc-1740-neither-autonomy-nor-elite-steering-a-political-communication-analysis-of-campaign-and-general-tweeting-in-the-2012-u.s.-election" class="nav-link" data-scroll-target="#doc-1740-neither-autonomy-nor-elite-steering-a-political-communication-analysis-of-campaign-and-general-tweeting-in-the-2012-u.s.-election">Doc 1740 : <b> Neither Autonomy Nor Elite Steering: A Political Communication Analysis of Campaign and General Tweeting in the 2012 U.S. Election </b></a></li>
+  <li><a href="#doc-1741-engaging-young-adolescents-in-school-based-writing" id="toc-doc-1741-engaging-young-adolescents-in-school-based-writing" class="nav-link" data-scroll-target="#doc-1741-engaging-young-adolescents-in-school-based-writing">Doc 1741 : <b> Engaging Young Adolescents in School-Based Writing </b></a></li>
+  <li><a href="#doc-1742-west-germany-assuring-the-allies" id="toc-doc-1742-west-germany-assuring-the-allies" class="nav-link" data-scroll-target="#doc-1742-west-germany-assuring-the-allies">Doc 1742 : <b> WEST GERMANY-Assuring the Allies </b></a></li>
+  <li><a href="#doc-1743-language-economy-as-evidence-of-learner-autonomy" id="toc-doc-1743-language-economy-as-evidence-of-learner-autonomy" class="nav-link" data-scroll-target="#doc-1743-language-economy-as-evidence-of-learner-autonomy">Doc 1743 : <b> Language Economy as Evidence of Learner Autonomy </b></a></li>
+  <li><a href="#doc-1744-on-being-transhuman-commercial-bcis-and-the-quest-for-autonomy" id="toc-doc-1744-on-being-transhuman-commercial-bcis-and-the-quest-for-autonomy" class="nav-link" data-scroll-target="#doc-1744-on-being-transhuman-commercial-bcis-and-the-quest-for-autonomy">Doc 1744 : <b> On Being Transhuman: Commercial BCIs and the Quest for Autonomy </b></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Inspect Abstracts</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Autonomy</div>
+    <div class="quarto-category">Digital Media</div>
+    <div class="quarto-category">Self-Determination</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Felix Dietrich &amp; Leonard Reinecke </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 9, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># libs</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(RVerbalExpressions)</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># load data</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>clean_papers <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"../data/clean_papers.rds"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># define search term</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>regex_cmc <span class="ot">&lt;-</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="fu">rx_with_any_case</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="fu">rx_either_of</span>(</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="st">"internet"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    <span class="st">"cyber"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    <span class="st">"online media"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    <span class="st">"online communication"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16"></a>    <span class="st">"online social network"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17"></a>    <span class="st">"online communit"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18"></a>    <span class="st">"chat"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19"></a>    <span class="st">"email"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20"></a>    <span class="st">"computer-mediated"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21"></a>    <span class="st">"mobile phone"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22"></a>    <span class="st">"smartphone"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23"></a>    <span class="st">"instant mess"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24"></a>    <span class="st">"mobile mess"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25"></a>    <span class="st">"social media"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26"></a>    <span class="fu">rx</span>() <span class="sc">%&gt;%</span> <span class="fu">rx_find</span>(<span class="st">"social "</span>) <span class="sc">%&gt;%</span> <span class="fu">rx_find</span>(<span class="st">"network"</span>) <span class="sc">%&gt;%</span> <span class="fu">rx_anything</span>(<span class="at">mode =</span> <span class="st">"lazy"</span>) <span class="sc">%&gt;%</span> <span class="fu">rx_find</span>(<span class="st">"site"</span>) <span class="sc">%&gt;%</span> <span class="fu">rx_anything</span>(<span class="at">mode =</span> <span class="st">"lazy"</span>),</span>
+<span id="cb1-27"><a href="#cb1-27"></a>    <span class="st">"information and communication technolog"</span>,</span>
+<span id="cb1-28"><a href="#cb1-28"></a>    <span class="st">"facebook"</span>,</span>
+<span id="cb1-29"><a href="#cb1-29"></a>    <span class="st">"instagram"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30"></a>    <span class="st">"snapchat"</span>,</span>
+<span id="cb1-31"><a href="#cb1-31"></a>    <span class="st">"twitter"</span>,</span>
+<span id="cb1-32"><a href="#cb1-32"></a>    <span class="st">"wechat"</span>,</span>
+<span id="cb1-33"><a href="#cb1-33"></a>    <span class="st">"weibo"</span>,</span>
+<span id="cb1-34"><a href="#cb1-34"></a>    <span class="st">"texting"</span>)</span>
+<span id="cb1-35"><a href="#cb1-35"></a></span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="co"># define highlighter</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a>highlighter <span class="ot">&lt;-</span> </span>
+<span id="cb1-38"><a href="#cb1-38"></a>  <span class="fu">list</span>(</span>
+<span id="cb1-39"><a href="#cb1-39"></a>    <span class="at">lightgreen =</span> regex_cmc,</span>
+<span id="cb1-40"><a href="#cb1-40"></a>    <span class="at">cyan =</span> <span class="st">"(?i)(autonomy)"</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a>    )</span>
+<span id="cb1-42"><a href="#cb1-42"></a></span>
+<span id="cb1-43"><a href="#cb1-43"></a><span class="co"># print out nicely formatted abstracts</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a>abstract <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1701</span><span class="sc">:</span><span class="dv">1744</span>) {</span>
+<span id="cb1-46"><a href="#cb1-46"></a>  abstract <span class="ot">&lt;-</span> <span class="fu">c</span>(abstract, knitr<span class="sc">::</span><span class="fu">knit_child</span>(<span class="st">'../etc/abstract_helper.qmd'</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1-47"><a href="#cb1-47"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="doc-1701-building-trust-and-responsibility-into-autonomous-human-machine-teams" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1701-building-trust-and-responsibility-into-autonomous-human-machine-teams">Doc 1701 : <b> Building trust and responsibility into autonomous human-machine teams </b></h2>
+<p><a href="https://doi.org/10.3389/fphy.2022.942245" class="uri">https://doi.org/10.3389/fphy.2022.942245</a><br>
+<i> Tony Gillespie </i></p>
+<p>Harm can be caused to people and property by any highly-automated system, even with a human user, due to misuse or design; but which human has the legal liability for the consequences of the harm is not clear, or even which laws apply. The position is less clear for an interdependent Autonomous Human Machine Team System (A-HMT-S) which achieves its aim by reallocating tasks and resources between the human Team Leader and the <span style="background-color:lightgreen">Cyber</span> Physical System (CPS). A-HMT-S are now feasible and may be the only solution for complex problems. However, legal authorities presume that humans are ultimately responsible for the actions of any automated system, including ones using Artificial Intelligence (AI) to replace human judgement. The concept of trust for an A-HMT-S using AI is examined in this paper with three critical questions being posed which must be addressed before an A-HMT-S can be trusted. A hierarchical system architecture is used to answer these questions, combined with a method to limit a node’s behaviour, ensuring actions requiring human judgement are referred to the user. The underpinning issues requiring Research and Development (R&amp;amp;D) for A-HMT-S applications are identified and where legal input is required to minimize financial and legal risk for all stakeholders. This work takes a step towards addressing the problems of developing <span style="background-color:cyan">autonomy</span> for interdependent human-machine teams and systems.</p>
+</section>
+<section id="doc-1702-distance-language-learning-as-school-learners-perceive-it" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1702-distance-language-learning-as-school-learners-perceive-it">Doc 1702 : <b> DISTANCE LANGUAGE LEARNING AS SCHOOL LEARNERS PERCEIVE IT </b></h2>
+<p><a href="https://doi.org/10.32589/2412-9283.35.2021.251174" class="uri">https://doi.org/10.32589/2412-9283.35.2021.251174</a><br>
+<i> M. Fábián </i><br>
+<i> Ilona Huszti </i><br>
+<i> Erzsébet Bárány </i><br>
+<i> Ilona Lechner </i></p>
+<p>Abstract. Introduction. The school breakdown in spring 2020 made both teachers and learners all overthe world face new challenges: how to cope with distance learning (DL). It was not simple even in the welldeveloped countries. In Ukraine teachers tried to find different solutions. This period was a sudden but hugestep towards implementing ICT into the learning process. Purpose. The aim of the present study was to get aninsight into the way learners see distance learning, to hear their opinion and see their attidude to this form ofeducation, the difficulties and challenges they encountered during this period in the learning process in generaland in foreign language (FL) learning in particular. The focus was made on the learning habits, motivation,assessment, applications used, time spent on learning and stress students might have experienced. Methods.An online questionnaire containing closed-ended and open-ended questions was compiled and filled in bylearners of the upper grades of different schools. The data analysis was interpretive and statistical. Results.The material was sent mainly in the form of written text or video links and recordings via Messenger, <span style="background-color:lightgreen">email</span>or Google Classroom, very few online lessons were held. Most learners had difficulties; the most problematicarea in FL learning was grammar. Feedback and assessment were mainly in written form. The attitude tolearning was quite serious, learners developed their digital skills but some became demotivated. It was moretime-consuming, more difficult but less stressful and also less effective than face-to-face learning. Conclusion.Despite all the difficulties faced learners developed learner <span style="background-color:cyan">autonomy</span>, digital skills and gained experience ina new form of learning that can be useful for them in their future studies as in the digital age DL is gainingground worldwide.</p>
+</section>
+<section id="doc-1703-artificial-intelligence-in-medical-practice-regulative-issues-and-perspectives." class="level2">
+<h2 class="anchored" data-anchor-id="doc-1703-artificial-intelligence-in-medical-practice-regulative-issues-and-perspectives.">Doc 1703 : <b> ARTIFICIAL INTELLIGENCE IN MEDICAL PRACTICE: REGULATIVE ISSUES AND PERSPECTIVES. </b></h2>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/33611272/" class="uri">https://pubmed.ncbi.nlm.nih.gov/33611272/</a><br>
+<i> No Author Names </i></p>
+<p>The aim of the research is to identify specific of AI in healthcare, its nature, and specifics and to establish complexities of AI implementation in healthcare and to propose ways to eliminate them.Materials and methods: This study was conducted during June-October of 2020. Through a broad literature review, analysis of EU, USA regulation acts, scientific researches and opinions of progressive-minded people in this sphere this paper provide a guide to understanding the essence of AI in healthcare and specifics of its regulation. It is based on dialectical, comparative, analytic, synthetic and comprehensive methods.Results: One of the first broad definitions of AI sounded like “Artificial Intelligence is the study of ideas which enable computers to do the things that make people seem intelligent … The central goals of Artificial Intelligence are to make computers more useful and to understand the principles which make intelligence possible.” There are two approaches to name this technology - “Artificial intelligence” and “Augmented Intelligence.” We prefer to use a more common category of “Artificial intelligence” rather than “Augmented Intelligence” because the last one, from our point of view, leaves much space for “human supervision” meaning, and that will limit the sense of AI while it will undoubtedly develop in future. AI in current practice is interpreted in three forms, they are: AI as a simple electronic tool without any level of <span style="background-color:cyan">autonomy</span> (like electronic assistant, “calculator”), AI as an entity with some level of <span style="background-color:cyan">autonomy</span>, but under human control, and AI as an entity with broad <span style="background-color:cyan">autonomy</span>, substituting human’s activity wholly or partly, and we have to admit that the first one cannot be considered as AI at all in current conditions of science development. Description of AI often tends to operate with big technological products like DeepMind (by Google), Watson Health (by IBM), Healthcare’s Edison (by General Electric), but in fact, a lot of smaller technologies also use AI in the healthcare field - <span style="background-color:lightgreen">smartphone</span> applications, wearable health devices and other examples of the <span style="background-color:lightgreen">Internet</span> of Things. At the current stage of development AI in medical practice is existing in three technical forms: software, hardware, and mixed forms using three main scientific-statistical approaches - flowchart method, database method, and decision-making method. All of them are useable, but they are differently suiting for AI implementation. The main issues of AI implementation in healthcare are connected with the nature of technology in itself, complexities of legal support in terms of safety and efficiency, privacy, ethical and liability concerns.Conclusion: The conducted analysis makes it possible to admit a number of pros and cons in the field of AI using in healthcare. Undoubtedly this is a promising area with a lot of gaps and grey zones to fill in. Furthermore, the main challenge is not on technology itself, which is rapidly growing, evolving, and uncovering new areas of its use, but rather on the legal framework that is clearly lacking appropriate regulations and some political, ethical, and financial transformations. Thus, the core questions regarding is this technology by its nature is suitable for healthcare at all? Is the current legislative framework looking appropriate to regulate AI in terms of safety, efficiency, premarket, and postmarked monitoring? How the model of liability with connection to AI technology using in healthcare should be constructed? How to ensure privacy without the restriction of AI technology use? Should intellectual privacy rights prevail over public health concerns? Many questions to address in order to move in line with technology development and to get the benefits of its practical implementation.</p>
+</section>
+<section id="doc-1704-call-for-teaching-grammar-a-comparison-of-wbi-and-traditional-method" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1704-call-for-teaching-grammar-a-comparison-of-wbi-and-traditional-method">Doc 1704 : <b> CALL FOR TEACHING GRAMMAR: A COMPARISON OF WBI AND TRADITIONAL METHOD </b></h2>
+<p><a href="https://doi.org/10.52337/pjer.v5i2.529" class="uri">https://doi.org/10.52337/pjer.v5i2.529</a><br>
+<i> None Naureen Zaman </i></p>
+<p>The advent of computer in general and <span style="background-color:lightgreen">internet</span> in particular has opened new avenues for learning language. Computer Assisted Language Learning (CALL) is considered highly effective for language learning as technology creates a student centered environment, increases learner <span style="background-color:cyan">autonomy</span>, and results in higher learning outcomes. This study investigated if CALL using Web Based Instruction (WBI) as a tool is more beneficial than the traditional method for teaching English grammar to undergraduate students in Pakistan. An experimental design was followed to compare the effect of technology based and traditional method of teaching and a focus group interview was conducted to obtain the participants’ views about CALL. MANCOVA test was applied for the analysis of the pretest and posttest scores. Results showed that the experimental group performed significantly better than the control group. Additionally, the students exhibited a positive attitude towards technology based teaching. Based on these findings, integration of computers is recommended in English language teaching for improved learning.</p>
+</section>
+<section id="doc-1705-algorithmic-distortion-of-informational-landscapes" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1705-algorithmic-distortion-of-informational-landscapes">Doc 1705 : <b> Algorithmic Distortion of Informational Landscapes </b></h2>
+<p><a href="https://doi.org/10.3406/intel.2019.1895" class="uri">https://doi.org/10.3406/intel.2019.1895</a><br>
+<i> Camille Roth </i></p>
+<p>The possible impact of algorithmic recommendation on the <span style="background-color:cyan">autonomy</span> and free choice of <span style="background-color:lightgreen">Internet</span> users is being increasingly discussed, especially in terms of the rendering of information and the structuring of interactions. This paper aims at reviewing and framing this issue along a double dichotomy. The first one addresses the discrepancy between users’ intentions and actions (1) under some algorithmic influence and (2) without it. The second one distinguishes algorithmic biases on (1) prior information rearrangement and (2) posterior information arrangement. In all cases, we focus on and differentiate situations where algorithms empirically appear to expand the cognitive and social horizon of users, from those where they seem to limit that horizon. We additionally suggest that these biases may not be properly appraised without taking into account the underlying social processes which algorithms are building upon.</p>
+</section>
+<section id="doc-1706-is-purity-a-distinct-and-homogeneous-domain-in-moral-psychology" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1706-is-purity-a-distinct-and-homogeneous-domain-in-moral-psychology">Doc 1706 : <b> Is purity a distinct and homogeneous domain in moral psychology? </b></h2>
+<p><a href="https://doi.org/10.1037/xge0001274" class="uri">https://doi.org/10.1037/xge0001274</a><br>
+<i> Dolichan Kollareth </i><br>
+<i> Hiram Brownell </i><br>
+<i> Juan Ignacio Duran </i><br>
+<i> James A. Russell </i></p>
+<p>“No” is our answer to the question in our title. In moral psychology, a purity violation (defined as an immoral act committed against one’s own body or soul) was theorized to be a homogeneous moral domain qualitatively distinct from other moral domains. In contrast, we hypothesized heterogeneity rather than homogeneity, overlapping rather than distinct domains, and quantitative rather than qualitative differences from other hypothesized domains (specifically, <span style="background-color:cyan">autonomy</span>, which is harm to others). Purity has been said to consist of norms violations of which elicit disgust and taint the soul. Here we empirically examined homogeneity: whether violations of body (e.g., eating putrid food) belong in the same moral domain as violations of the soul unrelated to bodily health (e.g., selling one’s soul, desecrating sacred books). We examined distinctness: whether reactions to purity violations differ in predicted ways from those to violations of <span style="background-color:cyan">autonomy</span>. In four studies (the last preregistered), American <span style="background-color:lightgreen">Internet</span> users (in Studies 2 and 4, classified as politically conservative or liberal; Ns = 80, 96, 1,312, 376) were given stories about violations based on prior studies. Nonhealth purity violations were rated as relatively more disgusting, but less gross (the lay term for the reaction to putrid things) and more likely to taint the soul than were health-related ones. Surprisingly, both health and nonhealth purity violations were typically judged as only slightly immoral if at all. <span style="background-color:cyan">Autonomy</span> violations were rated as more disgusting and tainting of the soul than were purity violations. (PsycInfo Database Record (c) 2022 APA, all rights reserved).</p>
+</section>
+<section id="doc-1707-social-media-and-its-negative-impacts-on-autonomy" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1707-social-media-and-its-negative-impacts-on-autonomy">Doc 1707 : <b> Social Media and its Negative Impacts on Autonomy </b></h2>
+<p><a href="https://doi.org/10.1007/s13347-022-00567-7" class="uri">https://doi.org/10.1007/s13347-022-00567-7</a><br>
+<i> Siavosh Sahebi </i><br>
+<i> Paul Formosa </i></p>
+<p>Abstract How <span style="background-color:lightgreen">social media</span> impacts the <span style="background-color:cyan">autonomy</span> of its users is a topic of increasing focus. However, much of the literature that explores these impacts fails to engage in depth with the philosophical literature on <span style="background-color:cyan">autonomy</span>. This has resulted in a failure to consider the full range of impacts that <span style="background-color:lightgreen">social media</span> might have on <span style="background-color:cyan">autonomy</span>. A deeper consideration of these impacts is thus needed, given the importance of both <span style="background-color:cyan">autonomy</span> as a moral concept and <span style="background-color:lightgreen">social media</span> as a feature of contemporary life. By drawing on this philosophical literature, we argue that <span style="background-color:cyan">autonomy</span> is broadly a matter of developing <span style="background-color:cyan">autonomy</span> competencies, having authentic ends and control over key aspects of your own life, and not being manipulated, coerced, and controlled by others. We show how the <span style="background-color:cyan">autonomy</span> of users of <span style="background-color:lightgreen">social media</span> can be disrespected and harmed through the control that <span style="background-color:lightgreen">social media</span> can have over its users’ data , attention , and behaviour . We conclude by discussing various recommendations to better regulate <span style="background-color:lightgreen">social media</span>.</p>
+</section>
+<section id="doc-1708-blended-teaching-strategies-of-college-english-translation-under-the-background-of-internet" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1708-blended-teaching-strategies-of-college-english-translation-under-the-background-of-internet">Doc 1708 : <b> Blended Teaching Strategies of College English Translation under the Background of Internet </b></h2>
+<p><a href="https://doi.org/10.1155/2022/7276017" class="uri">https://doi.org/10.1155/2022/7276017</a><br>
+<i> Jing Ning </i><br>
+<i> Haidong Ban </i></p>
+<p>Blended learning has taken center stage in higher education because it involves overseeing of “Online learning” and the ongoing growth of teaching reform in colleges and universities. <span style="background-color:lightgreen">Internet</span> promotes the reconfiguration and integration of educational resources. The <span style="background-color:lightgreen">Internet</span> has greatly magnified the role and value of high-quality educational resources. Blended teaching combines the advantages of traditional teaching and network teaching to complement each other; it not only gives full play to the flexibility and <span style="background-color:cyan">autonomy</span> of network teaching, but also retains the connection of teacher-student emotional communication in traditional teaching. Translation teaching is an important part of college English teaching. This article mainly introduces the research of college English translation (CET) blended teaching strategies under the <span style="background-color:lightgreen">Internet</span> background. This paper proposes a research plan for CET blended teaching strategies under the <span style="background-color:lightgreen">Internet</span> background, including literature research method, questionnaire survey method, analytic hierarchy process, expert interview method, teaching evaluation sentiment classification algorithm based on feature-weighted Stacking algorithm, and analytic hierarchy process of the teaching effect evaluation algorithm. The experimental results of this article show that the average value of the questionnaire Cronbach’s α coefficient is 0.915, demonstrating that the study’s information is both extremely plausible and reasonably real.</p>
+</section>
+<section id="doc-1709-discursividades-no-material-didático-de-ensino-de-língua-materna-sobre-metodologias-ativas" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1709-discursividades-no-material-didático-de-ensino-de-língua-materna-sobre-metodologias-ativas">Doc 1709 : <b> Discursividades no material didático de ensino de língua materna sobre metodologias ativas </b></h2>
+<p><a href="https://doi.org/10.29327/256399.10.1-11" class="uri">https://doi.org/10.29327/256399.10.1-11</a><br>
+<i> Elizabeth Amorim Coelho </i><br>
+<i> Silvelena Cosmo Dias </i></p>
+<p>This article addresses discourses on Active Methodologies (AMs) in mother tongue teaching materials, with the aim of problematizing them. AMs bring strategies that promise a more dynamic class, with active participation of the student, placing them at the center of the learning process, which leads to more <span style="background-color:cyan">autonomy</span> and responsibility. Theoretical contributions are from Discourse Analysis (DA), based on Foucault (1999), for the analysis of the meaning effects, emanating from the discourse. In the school context, the textbook acts as a form of power-knowledge, imposing regimes of truth. An analysis was made in a high school textbook of a public school, and a subtle use of AMs was observed. They appear as a hoax for traditional teaching, masquerading as liberating, fun and playful teaching. <span style="background-color:lightgreen">Information and Communication Technolog</span>ies (ICT) are placed as if they were easily accessible and familiar to students.</p>
+</section>
+<section id="doc-1710-mobile-phones-dependency-and-psychological-wellbeing-of-students-in-selected-secondary-schools-in-nairobi-county--kenya" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1710-mobile-phones-dependency-and-psychological-wellbeing-of-students-in-selected-secondary-schools-in-nairobi-county--kenya">Doc 1710 : <b> Mobile Phones Dependency and Psychological Wellbeing of Students in Selected Secondary Schools in Nairobi County- Kenya </b></h2>
+<p><a href="https://doi.org/10.47772/ijriss.2022.6716" class="uri">https://doi.org/10.47772/ijriss.2022.6716</a><br>
+<i> Cyprien Nkoma </i><br>
+<i> Elijah Macharia Ndungú </i><br>
+<i> Maria Ntarangwe </i></p>
+<p>The use of <span style="background-color:lightgreen">mobile phone</span>s among secondary school students is of concern when looking at the increase of violent behaviors in schools. The <span style="background-color:lightgreen">mobile phone</span> use and the psychological wellbeing of secondary school students has become an issue of interest for research. The aim of this study was to assess the relationship between the time spent on <span style="background-color:lightgreen">mobile phone</span> use and the psychological wellbeing of secondary school students in Nairobi County, Kenya. The study used an embedded mixed method research design. A Multistage sampling method was employed in selecting the 7 schools, and the sample size of 357 respondents. Data was collected using a questionnaire and analyzed using descriptive and inferential statistics. Pearson’s Product Moment Correlation Coefficients was used for data analysis. The main findings of this study showed a strong positive correlation between time spent on the use of <span style="background-color:lightgreen">mobile phone</span>s and the psychological wellbeing of secondary school students (0.885). The study also found out that there was a strong positive correlation between time spent on the <span style="background-color:lightgreen">mobile phone</span>s and the aspect of personal growth (0.985) and the self-acceptance (0.980). There was a moderate positive correlation between time spent on the use of <span style="background-color:lightgreen">mobile phone</span>s and the environmental mastery (0.60), the purpose in life (0.528) and the positive relations with others (0.457). There was a weak positive correlation between time spent on the use of <span style="background-color:lightgreen">mobile phone</span>s and the <span style="background-color:cyan">autonomy</span> (0.004). The study recommends that the school administration should establish counselling facilities which can address the issues related to <span style="background-color:lightgreen">mobile phone</span>s use among secondary school students.</p>
+</section>
+<section id="doc-1711-the-ethical-dilemma-of-mobile-phone-data-monitoring-during-covid-19-the-case-for-south-korea-and-the-united-states" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1711-the-ethical-dilemma-of-mobile-phone-data-monitoring-during-covid-19-the-case-for-south-korea-and-the-united-states">Doc 1711 : <b> The ethical dilemma of mobile phone data monitoring during COVID-19: The case for South Korea and the United States </b></h2>
+<p><a href="https://doi.org/10.1177/22799036221102491" class="uri">https://doi.org/10.1177/22799036221102491</a><br>
+<i> Benjamin Y Anom </i></p>
+<p>Governments across the world have integrated a variety of advanced technologies to respond to the COVID-19 crisis. In particular, the use of surveillance programs that leverage data and tools from <span style="background-color:lightgreen">mobile phone</span>s have become important components of public health strategies to contain the spread of SARS-CoV-2 across the globe. Currently, big technology companies around the world are helping governments evaluate the effectiveness of their social distancing protocols by examining and analyzing movements of millions of <span style="background-color:lightgreen">mobile phone</span> users in order to determine how the virus is spreading across the various geographic locations, and the effectiveness of the various social distancing methods that have been implemented. The collection and use of individual <span style="background-color:lightgreen">mobile phone</span> data as a public health surveillance tool presents tensions between several ethical priorities. Such a dilemma resides in the tensions between public health ethics goals and clinical ethics goals. While public health ethics pursues goals that seek to ensure the good of the community, such goals are often achieved at the expense of clinical ethics goals which emphasize individual <span style="background-color:cyan">autonomy</span> and civil liberty. In using persons’ <span style="background-color:lightgreen">mobile phone</span> data as a tool to fight the COVID-19 pandemic, we must address the tensions associated with weighing the needs of “the many” with ensuring the rights of the individual.</p>
+</section>
+<section id="doc-1712-smartphone-apps-as-a-motivating-tool-in-english-language-learning" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1712-smartphone-apps-as-a-motivating-tool-in-english-language-learning">Doc 1712 : <b> Smartphone apps as a motivating tool in English language learning </b></h2>
+<p><a href="https://doi.org/10.17509/ijal.v12i1.46544" class="uri">https://doi.org/10.17509/ijal.v12i1.46544</a><br>
+<i> Nagaletchimee Annamalai </i><br>
+<i> Muhammad Kamarul Kabilan </i><br>
+<i> Deepa Soundrarajan </i></p>
+<p>Since <span style="background-color:lightgreen">smartphone</span>s are getting cheaper, sophisticated, and multifunctional, there are opportunities for learners to engage in more meaningful English language learning. This study employs a mixed-method research design, with the purpose of identifying the use of English language apps outside the classroom and depicting students’ English language apps use behaviour i.e.&nbsp;motivation from the Self-Determination Theory (SDT). The findings show that students use the apps related to grammar the most and followed by English apps related to speaking, reading and, vocabulary. Findings also reveal students in this study display three types of motivation from the perspective of SDT i.e.&nbsp;<span style="background-color:cyan">autonomy</span>, competence, and relatedness. Based on the findings, a model of Pedagogical Considerations of Using <span style="background-color:lightgreen">Smartphone</span> for English Language Learning (PCUSELL) is suggested. As a conclusion, the authors suggests that educators in higher educational institution educators should consider the potential of <span style="background-color:lightgreen">smartphone</span> English apps in their teaching and learning activities, particularly in this new normal of teaching and learning i.e.&nbsp;epoch of the COVID-19 pandemic.</p>
+</section>
+<section id="doc-1713-anti-corruption-digital-solutions-the-ukrainian-experience-and-the-peculiarities-of-their-implementation-in-a-state-of-war" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1713-anti-corruption-digital-solutions-the-ukrainian-experience-and-the-peculiarities-of-their-implementation-in-a-state-of-war">Doc 1713 : <b> ANTI-CORRUPTION DIGITAL SOLUTIONS: THE UKRAINIAN EXPERIENCE AND THE PECULIARITIES OF THEIR IMPLEMENTATION IN A STATE OF WAR </b></h2>
+<p><a href="https://doi.org/10.17721/2616-9193.2022/16-2/7" class="uri">https://doi.org/10.17721/2616-9193.2022/16-2/7</a><br>
+<i> Nataliia Korchak </i></p>
+<p>The purpose of the article is to highlight the innovative experience of implementation of digital transformation in Ukraine on the example of the National Agency for the Prevention of Corruption (hereinafter - NAPC). The content of the publication is due to the specifics of the subject of research and reflects an interdisciplinary approach to the disclosure of the topic. The article is a comprehensive study of the problems of digital transformation (digitalization) in terms of quantitative and qualitative changes in public administration and management. By the example of the organization of management in the NAPC, attention is focused on the directions of digital transformation and the components of the processes of digitalization of the subject of public administration are highlighted. It is noted that for the effective fight against corruption it is necessary not only to adopt high-quality anti-corruption legislation and create strong anti-corruption bodies, but also to develop/apply digital tools. NAPC became one of the first state agencies, which appointed an official for digital development, digital transformation and digitalization and is the leader in Ukraine in the implementation of anti-corruption digital solutions. It is argued that digitalization in public and governmental activities forms a qualitative characteristic of the system of public administration with the use of modern technologies, and digitalization of the National Agency is the key to the development of its institutional <span style="background-color:cyan">autonomy</span> as a service organization. It is established that since the beginning of the war the NAPC has completely reformatted its work in the direction of providing interdepartmental communication of specialized bodies in joint projects. This is due to the high level of new digital skills and knowledge acquired in the pre-war period and the presence of a powerful team of analysts involved in collecting and processing the data needed to form proposals to the sanctions lists. The digital competence of the NAPC is implemented in the process of identifying individuals involved in the aggression against Ukraine. Thanks to the Task-force portal, assets of sanctioned persons are identified for their seizure in order to restore Ukraine. The War and Sanctions portal provides information on sanctioned individuals and data on the assets of individuals involved in Russia’s military aggression. The list of domestic collateral officials is formed through the maintenance of the Register of State Assignees. The implementation of the international IT tool RuAssets increases the efficiency of work to identify hidden Russian and Belarusian assets. It is noted and substantiated that the digitalization of NAPC covers both the automation of internal management processes and the introduction of modern <span style="background-color:lightgreen">information and communication technolog</span>ies in the fight against corruption (in a peaceful period of development of the country) and the fierce struggle of the Ukrainian people against full-scale Russian aggression. The scientific novelty of the article is due to the fact that for the first time the various aspects of the implementation of digital solutions in the framework of digital transformation are reflected on the example of a state body. The practical significance of the article is associated with the possibility of further use of its materials in the educational process, conducting interdisciplinary research into the problems of digital state development and anti-corruption digital solutions and the formation of proposals for the use of innovative IT-technologies in the activities of public administrations.</p>
+</section>
+<section id="doc-1714-associations-between-basic-psychological-need-satisfaction-and-motivation-underpinning-daily-activity-participation-among-community-dwelling-stroke-survivors-an-ecological-momentary-assessment-study" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1714-associations-between-basic-psychological-need-satisfaction-and-motivation-underpinning-daily-activity-participation-among-community-dwelling-stroke-survivors-an-ecological-momentary-assessment-study">Doc 1714 : <b> Associations Between Basic Psychological Need Satisfaction and Motivation Underpinning Daily Activity Participation Among Community-dwelling Stroke Survivors: An Ecological Momentary Assessment Study </b></h2>
+<p><a href="https://doi.org/10.1016/j.apmr.2022.07.011" class="uri">https://doi.org/10.1016/j.apmr.2022.07.011</a><br>
+<i> Stephen C L Lau </i><br>
+<i> Lisa Tabor Connor </i><br>
+<i> Carolyn M. Baum </i></p>
+<h2 class="anchored">
+Abstract
+</h2>
+<h3 class="anchored">
+Objective
+</h3>
+Grounded in the self-determination theory (SDT), this study aimed to examine the real-time associations between basic psychological need satisfaction and motivation underpinning daily activity participation among stroke survivors.
+<h3 class="anchored">
+Design
+</h3>
+Repeated-measures observational study involving seven days of ambulatory monitoring; participants completed ecological momentary assessment (EMA) surveys via <span style="background-color:lightgreen">smartphone</span>s eight times daily. Multilevel models were used to analyze EMA data for concurrent (same survey) and lagged (next survey) associations.
+<h3 class="anchored">
+Setting
+</h3>
+General community.
+<h3 class="anchored">
+Participants
+</h3>
+Forty community-dwelling stroke survivors.
+<h3 class="anchored">
+Interventions
+</h3>
+Not applicable.
+<h3 class="anchored">
+Main Outcome Measure
+</h3>
+EMA measures of basic psychological needs (<span style="background-color:cyan">autonomy</span>, competence, relatedness) and motivation (autonomous motivation, controlled motivation).
+<h3 class="anchored">
+Results
+</h3>
+In concurrent analyses, increased <span style="background-color:cyan">autonomy</span> (B=0.21, 95% CI 0.16 to 0.26, p&lt;0.001), competence (B=0.10, 95% CI 0.02 to 0.19, p=0.021), and relatedness (B=0.10, 95% CI 0.06 to 0.13, p&lt;0.001) were momentarily associated with higher autonomous motivation. Conversely, increased <span style="background-color:cyan">autonomy</span> (B=-0.19, 95% CI -0.27 to -0.10, p&lt;0.001) and competence (B=-0.09, 95% CI -0.17 to -0.01, p=0.020) were momentarily associated with lower controlled motivation. Contrary to SDT, increased relatedness was momentarily associated with higher controlled motivation (B=0.10, 95% CI 0.05 to 0.14, p&lt;0.001). In lagged analyses, no momentary associations were detected between basic psychological needs and motivation (ps&gt;0.05).
+<h3 class="anchored">
+Conclusions
+</h3>
+<p>Findings suggest that basic psychological need satisfaction is momentarily associated with motivation for daily activity participation. Additional research is warranted to examine the associations of different orientations of relatedness with autonomous and controlled motivation. Supporting basic psychological needs may foster stroke survivors’ autonomous motivation to enhance daily activity participation following stroke.</p>
+</section>
+<section id="doc-1715-a-glimpse-of-physical-layer-decision-mechanisms-facts-challenges-and-remedies" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1715-a-glimpse-of-physical-layer-decision-mechanisms-facts-challenges-and-remedies">Doc 1715 : <b> A Glimpse of Physical Layer Decision Mechanisms: Facts, Challenges, and Remedies </b></h2>
+<p><a href="https://doi.org/10.1109/ojcoms.2022.3195434" class="uri">https://doi.org/10.1109/ojcoms.2022.3195434</a><br>
+<i> Selen Gecgel </i><br>
+<i> Caner Goztepe </i><br>
+<i> Gunes Karabulut Kurt </i><br>
+<i> Halim Yanikomeroglu </i></p>
+<p>Communications are realized as a result of successive decisions at the physical layer, from modulation selection to multi-antenna strategy, and each decision affects the performance of the communication systems. Future communication systems must include extensive capabilities as they will encompass a wide variety of devices and applications. Conventional physical layer decision mechanisms may not meet these requirements, as they are often based on impractical and oversimplifying assumptions that result in a trade-off between complexity and efficiency. By leveraging past experiences, learning-driven designs are promising solutions to present a resilient decision mechanism and enable rapid response even under exceptional circumstances. The corresponding design solutions should evolve following the lines of learning-driven paradigms that offer more <span style="background-color:cyan">autonomy</span> and robustness. This evolution must take place by considering the facts of real-world systems and without restraining assumptions. In this paper, the common assumptions in the physical layer are presented to highlight their discrepancies with practical systems. As a solution, learning algorithms are examined by considering the implementation steps and challenges. Furthermore, these issues are discussed through a real-time case study using software-defined radio nodes to demonstrate the potential performance improvement. A <span style="background-color:lightgreen">cyber</span>-physical framework is presented to incorporate future remedies.</p>
+</section>
+<section id="doc-1716-ambidexterity-organizational-structure-and-types-of-innovations-in-technological-rd-institutes-in-brazil" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1716-ambidexterity-organizational-structure-and-types-of-innovations-in-technological-rd-institutes-in-brazil">Doc 1716 : <b> Ambidexterity, organizational structure, and types of innovations in technological R&amp;D institutes in Brazil </b></h2>
+<p><a href="https://doi.org/10.5585/riae.v21i1.20836" class="uri">https://doi.org/10.5585/riae.v21i1.20836</a><br>
+<i> Marcos Antonio Franklin </i><br>
+<i> Silvio Popadiuk </i></p>
+<p>Objective: This study examines how the organizational structure - mechanistic or organic - and exploration and exploration can contribute to explaining the radical and incremental innovations in research and development institutes (PD) of technology, aimed at products and services related to the <span style="background-color:lightgreen">Internet</span>, software, hardware, telecommunications (Telecom), information technology (IT) and automation.Methodology: The research was carried out in two phases: Qualitative with four case studies, two cases of national institutes, one private and one public, and two multinational private institutes located in Brazil. The quantitative used a closed questionnaire applied to 17 institutions.Originality / Relevancy: A justification for the selection of TRDI based on the fact that the literature on exploration, exploitation, organizational structure, and innovation shows that the areas of PD of organizations, as well as high technology businesses, must be structured organically. Due to the need for decentralization, more fluid communications, greater <span style="background-color:cyan">autonomy</span>, and the creation of knowledge are necessary as you flourish in turbulent and unstable environments.Main results: The results will reveal a predominance of the organic model in 19 two 21 institutes studied, using both stages. However, it seems that, despite strong guidance for the organic model, there are elements of the mechanistic model: the ability to combine bureaucracy will lose the necessary flexibility. This study reveals that when two models of organizational structures and exploration and exploitation are discussed, there is a gap between theory and application.Theoretical/methodological contributions: The study describes the analysis of the position of institutes in relation to obtaining, generating, and implementing expertise, examining how their organizational structures are configured to carry out related activities in a suitable way for exploration, exploration, and development of innovation in development. you root and increase.Social contributions / for management: In practical terms, this study is relevant because it allows managers and government institutions to establish and implement innovative policies and procedures in this type of technology center. These implications are related to decision-making processes, knowledge creation, guidance for exploration, exploration, ambidexterity, and types of innovation. Consequently, it can be presumed that the organizational structure of these orientations can be mixed. By these arguments, we understand that innovation, ambidexterity (exploration and exploitation), and organizational structure have a strong relationship.</p>
+</section>
+<section id="doc-1717-digital-games-special-education" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1717-digital-games-special-education">Doc 1717 : <b> Digital games &amp; special education </b></h2>
+<p><a href="https://doi.org/10.47577/tssj.v34i1.7054" class="uri">https://doi.org/10.47577/tssj.v34i1.7054</a><br>
+<i> Irene Chaidi </i><br>
+<i> Athanasios Drigas </i></p>
+<p>Educators define three factors of interaction or as they refer to the 3 C’s in education: Children (children), Community (communication), and Computer (computers) [1]. <span style="background-color:lightgreen">Information and Communication Technolog</span>ies are an integral tool of the educational process for modern educational systems, helping the learning process to turn from passive to active, pushing each student to learn independence and <span style="background-color:cyan">autonomy</span>. In recent years, the sciences of education have turned their attention and have already recognized the importance of games and even digital games as a learning tool, emphasizing the benefits for students with or without educational needs.</p>
+</section>
+<section id="doc-1718-bio-nfts-and-digital-liquidity" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1718-bio-nfts-and-digital-liquidity">Doc 1718 : <b> Bio NFTs and Digital Liquidity </b></h2>
+<p><a href="https://doi.org/10.30953/bhty.v5.238" class="uri">https://doi.org/10.30953/bhty.v5.238</a><br>
+<i> Daniel Uribe, CEO </i><br>
+<i> Ryan Wright </i></p>
+<p>
+ 
+ 
+ The fireside <span style="background-color:lightgreen">chat</span> features an in-depth discussion with the founder of Genobank.io regarding the future of NFT use in healthcare. NFTs are explored as a means to <span style="background-color:cyan">autonomy</span> in health information. Citizens are slowly understanding the (digital) liquidity of thier confidential data to institutions such as payors and health systems.
+ Enterprise blockchain in healthcare is slowly maturing and many institutions are adopting the tools for transormation.
+ Questions to resolve are autonomous (asset) ownership of data, or paying a third party to catalogue an individual’s data. 
+ 
+ 
+</p>
+</section>
+<section id="doc-1719-the-problem-of-interactive-english-language-learning-in-distance-mode" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1719-the-problem-of-interactive-english-language-learning-in-distance-mode">Doc 1719 : <b> The Problem of Interactive English Language Learning in Distance Mode </b></h2>
+<p><a href="https://doi.org/10.18662/po/13.3/489" class="uri">https://doi.org/10.18662/po/13.3/489</a><br>
+<i> Alina Medynska </i><br>
+<i> Olena Vasylenko </i><br>
+<i> Olha Lapshyna </i><br>
+<i> Tetiana Krasnopera </i><br>
+<i> Yana Necheporuk </i><br>
+<i> Oleksandra Bondarenko </i></p>
+<p>The article elaborates on an interactive approach to language learning applied in an online EFL classroom. It presents a new insight into implementing interactive methods to develop students’ communicative competence. In conditions of world integration, the formation of communicative and life skills is indispensable. Eventually, such an approach to English language learning in distance mode is the most accessible way for teacher-learner(s) interaction to acquire general linguistic expertise and upgrade specific language skills.
+ The study results show that an interactive approach facilitates live communication in online EFL settings, enhances learners’ motivation and <span style="background-color:cyan">autonomy</span>, and fosters quick decision-making reactions. Modern computer technologies offer boundless opportunities for interactive methods application in the online foreign language learning context. A skillful instructor is called to masterly plan <span style="background-color:lightgreen">computer-mediated</span> classroom activities, creating space to realize each student’s cognitive and communicative potential fully. Students learn to debate, substantiate their viewpoints, brainstorm ideas, do projects, work individually or collaborate in comfortable learning settings.</p>
+</section>
+<section id="doc-1720-analyzing-customer-acceptance-of-the-internet-of-things-iot-in-the-retail-industry" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1720-analyzing-customer-acceptance-of-the-internet-of-things-iot-in-the-retail-industry">Doc 1720 : <b> Analyzing customer acceptance of the internet of things (IoT) in the retail industry </b></h2>
+<p><a href="https://doi.org/10.1007/s12652-022-04383-x" class="uri">https://doi.org/10.1007/s12652-022-04383-x</a><br>
+<i> Noorshella Che Nawi </i><br>
+<i> Abdullah Al Mamun </i><br>
+<i> Noorul Azwin Md Nasir </i><br>
+<i> Muhammad Khalilur Rahman </i></p>
+<p>This study examined the effects of critical success factors on Malaysian consumers’ acceptance of the <span style="background-color:lightgreen">internet</span> of things (AOIoT) in the retail industry. A cross-sectional design was adopted, and quantitative data were collected from 357 respondents using an online survey. The findings revealed that performance expectancy, facilitating conditions, perceived enjoyment, perceived trust, technology <span style="background-color:cyan">autonomy</span>, and perceived risk have a significant impact on attitude towards the IoT (ATIoT). The findings also revealed a positive and significant effect of ATIoT on the AOIoT among Malaysian customers. Therefore, relevant policymakers and industry should improve Malaysian consumers’ awareness of and attitudes towards the IoT.</p>
+</section>
+<section id="doc-1721-methodology-for-analyzing-the-manageability-of-country-communication-modes" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1721-methodology-for-analyzing-the-manageability-of-country-communication-modes">Doc 1721 : <b> Methodology for Analyzing the Manageability of Country Communication Modes </b></h2>
+<p><a href="https://doi.org/10.53658/rw2022-2-3(5)-94-107" class="uri">https://doi.org/10.53658/rw2022-2-3(5)-94-107</a><br>
+<i> V. V. Komleva </i></p>
+<p>Analyzing of communication modes is a new direction not only in Russian, but also in foreign studies. As a result, methodology is just being formed. The article is devoted to the description of the author’s methodology, which allows to identify the types of management and the degree of controllability of communication modes in different countries. The author relies on a systematic, <span style="background-color:lightgreen">cyber</span>netic approach, on the theory of complex systems, uses the matrix method and the method of comparative analysis. Manageability is defined as a measure of control by the the management center (management entities that make decisions about rules and communication institutions), taking into account the voluntary consent of the objects of management with the level of their <span style="background-color:cyan">autonomy</span> and subordination. The basis of the author’s methodology are three significant parameters: 1) location (inside or outside the country); 2) level of conventionality of the communication regime management centre; 3) assessment of the indicators of manageability. The main criteria of manageability are: the ability of communication mode control centres to transfer it from one state to another without conflict; the ability to achieve the controlled parameters of communication mode; the ability to use the mechanisms of self-organization and self-reflection of control objects to regulate communication modes.</p>
+</section>
+<section id="doc-1722-legal-path-of-rural-revitalization-for-decision-making-risk-prevention-of-internet-of-things-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1722-legal-path-of-rural-revitalization-for-decision-making-risk-prevention-of-internet-of-things-algorithm">Doc 1722 : <b> Legal Path of Rural Revitalization for Decision-Making Risk Prevention of Internet of Things Algorithm </b></h2>
+<p><a href="https://doi.org/10.1155/2022/4044690" class="uri">https://doi.org/10.1155/2022/4044690</a><br>
+<i> Wenqiang He </i><br>
+<i> Haolun Ding </i></p>
+<p>The implementation of the rural revitalization strategy is an important strategic plan to solve the social “three rural” problems on the new road of building a socialist modernized country in an all-round way. It is also the current society to promote the comprehensive rule of law and to create and improve a modern rural social governance system under the leadership of the party committee, the government is responsible, the society is coordinated, and the country is governed by law. However, due to the wide distribution of rural areas and the large population base of farmers, there are many risks in the implementation of the rural revitalization strategy. In the comprehensive use of economic, administrative, and legal means, legal means has become the key. For this reason, this article conducted in-depth research on the legal path of rural revitalization under the risk prevention of <span style="background-color:lightgreen">Internet</span> of Things algorithm decision-making. The research results showed that the risk prevention of <span style="background-color:lightgreen">Internet</span> of Things algorithm decision-making was introduced into the research on the legal path of rural revitalization, and a sound rural governance system that combined <span style="background-color:cyan">autonomy</span>, rule of law, and morality is an important part of the revitalization of seven villages. It can improve the 2.67% effectiveness of risk prevention in decision-making and can also play a key role in ruling the country according to law, showing the correct direction of agricultural legal system construction and at the same time high-level rural construction and development under the framework of the rule of law. It will vigorously promote the comprehensive modernization of agriculture, the comprehensive progress of rural areas, and the revitalization and development of rural areas.</p>
+</section>
+<section id="doc-1723-arena-pública-na-internet-em-defesa-da-universidade-pública-no-brasil-estratégias-de-uerjresiste" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1723-arena-pública-na-internet-em-defesa-da-universidade-pública-no-brasil-estratégias-de-uerjresiste">Doc 1723 : <b> Arena pública na internet em defesa da universidade pública no Brasil: Estratégias de #UERJResiste </b></h2>
+<p><a href="https://doi.org/10.33167/2184-0644.cpp2021.vviin2/pp.111-138" class="uri">https://doi.org/10.33167/2184-0644.cpp2021.vviin2/pp.111-138</a><br>
+<i> André Tropiano </i><br>
+<i> Neiva Vieira da Cunha </i></p>
+<p>The important dramatization of public scenes through <span style="background-color:lightgreen">social media</span> can be observed within the paradigm of the Networked Society proposed by Castells (2003). Networked social movements mobilize their efforts to foster and balance public debate in their favor. In this article, we aim to understand how the communication strategies on #UERJResiste <span style="background-color:lightgreen">Facebook</span> page in defense of the State University of Rio de Janeiro – UERJ – was presented in this public arena&nbsp;(Cefaï, 2017a, 2017b), in the period from January to April, 2017. 266 posts were collected to outline an ethnographic description (Laplantine, 2004) of the social movement. An interview was also held with one of the page’s administrators to understand how the content is produced in order to compose a situational analysis. As a result, we identified four categories that also constitute communication strategies: media politics, discourse of resisting, educational shares, and poetics of identity. In view of the privatization discourses of education and the attacks on its <span style="background-color:cyan">autonomy</span> and its professionals, we understand #UERJResiste as a protagonist with an important narrative to be disseminated, reflected, and discussed in the defense of the Brazilian Public University. Among the main contributions to this study are networked social movements from an ethnographic perspective of a public arena. We also highlight an understanding of strategic communication in the civic dynamics, rebounding the importance of the <span style="background-color:cyan">autonomy</span> of universities for democratic consolidation and citizen participation.</p>
+</section>
+<section id="doc-1724-networked-gift-giving-ethno-religious-minority-youths-negotiation-of-status-and-social-ties-in-a-society-of-distrust" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1724-networked-gift-giving-ethno-religious-minority-youths-negotiation-of-status-and-social-ties-in-a-society-of-distrust">Doc 1724 : <b> Networked gift-giving: Ethno-religious minority youths’ negotiation of status and social ties in a society of distrust </b></h2>
+<p><a href="https://doi.org/10.1177/14614448221114628" class="uri">https://doi.org/10.1177/14614448221114628</a><br>
+<i> Tom De Leyn </i><br>
+<i> Ralf De Wolf </i><br>
+<i> Mariek Vanden Abeele </i><br>
+<i> Lieven De Marez </i></p>
+<p>The reciprocal exchanges of messages, likes, and pictures on <span style="background-color:lightgreen">social media</span> are typical expressions of mobile youth culture. After all, it is well-established that young people’s disclosure practices support their efforts to maintain relationships, gain <span style="background-color:cyan">autonomy</span>, and, by large, consolidate a place in the world. What is often missing, however, is an exploration of how the specific socio-cultural contexts of ethno-religious minority youths shape and are shaped by <span style="background-color:lightgreen">social media</span> appropriations. Therefore, we conducted a 15-month ethnographic study among ethno-religious minority youths in which we investigated networked gift-giving practices. We stress the notion of “networked” because the results illustrate how these young people appropriate the amplified visibility of their relational maintenance behaviors on <span style="background-color:lightgreen">social media</span> in order to negotiate status and social ties. We connect these findings to the concept of a “distrustful society” as the participants hold a general distrust in society due to experiences of racism and marginalization.</p>
+</section>
+<section id="doc-1725-facilitating-or-inhibiting-the-role-of-enterprise-social-media-use-in-job-performance" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1725-facilitating-or-inhibiting-the-role-of-enterprise-social-media-use-in-job-performance">Doc 1725 : <b> Facilitating or inhibiting? The role of enterprise social media use in job performance </b></h2>
+<p><a href="https://doi.org/10.1108/itp-04-2021-0268" class="uri">https://doi.org/10.1108/itp-04-2021-0268</a><br>
+<i> Yufan Shang </i><br>
+<i> Yan Pan </i><br>
+<i> Malika Richards </i></p>
+<p>Purpose Organizations use enterprise <span style="background-color:lightgreen">social media</span> (ESM) platforms to operate, function, and develop. However, the effectiveness of the use of ESM is inconclusive. This study aims to explore the mechanism and boundary conditions of the relationship between employee ESM use and job performance. Design/methodology/approach This study uses a 2-wave survey design, with a final sample of 481 employees from a large automobile company. Findings The results indicate that ESM use is beneficial and detrimental to job performance. On the one hand, ESM use is positively related to work overload, decreasing job performance. On the other hand, ESM use is positively associated with informational support, increasing job performance. A mediation test revealed that both work overload and informational support mediate the relationship between ESM use and job performance. Furthermore, job <span style="background-color:cyan">autonomy</span> weakens the positive relationship between ESM use and work overload, but strengthens the positive relationship between ESM use and informational support. Originality/value This study provides a more balanced view of how ESM use influences job performance by demonstrating the opposing mediating roles of work overload and informational support. Further, this study fills a research gap by considering job characteristics when examining the boundary conditions of ESM use. Third, this study validates the generalization of the job demands-resources model in <span style="background-color:lightgreen">social media</span> research.</p>
+</section>
+<section id="doc-1726-friendly-but-faulty-a-pilot-study-on-the-perceived-trust-of-older-adults-in-a-social-robot" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1726-friendly-but-faulty-a-pilot-study-on-the-perceived-trust-of-older-adults-in-a-social-robot">Doc 1726 : <b> Friendly but Faulty: A Pilot Study on the Perceived Trust of Older Adults in a Social Robot </b></h2>
+<p><a href="https://doi.org/10.1109/access.2022.3202942" class="uri">https://doi.org/10.1109/access.2022.3202942</a><br>
+<i> Ioanna Giorgi </i><br>
+<i> Francesca Tirotto </i><br>
+<i> Oksana Hagen </i><br>
+<i> Farida Aider </i><br>
+<i> Mario Gianni </i><br>
+<i> Marco Palomino </i><br>
+<i> Giovanni Luca Masala </i></p>
+<p>The efforts to promote ageing-in-place of healthy older adults via <span style="background-color:lightgreen">cyber</span>netic support are fundamental to avoid possible consequences associated with relocation to facilities, including the loss of social ties and <span style="background-color:cyan">autonomy</span>, and feelings of loneliness. This requires an understanding of key factors that affect the involvement of robots in eldercare and the elderly willingness to embrace the robots’ domestic use. Trust is argued to be the main foundation of an effective adult-care provider, which might be more significant if such providers are robots. Establishing, and maintaining trust usually involves two main dimensions: 1) the robot’s reliability (i.e., performance) and 2) the robot’s intrinsic attributes, including its degree of anthropomorphism and benevolence. We conducted a pilot study using a mixed methods approach to explore the extent to which these dimensions and their interaction influenced elderly trust in a humanoid social robot. Using two independent variables, <i>type of attitude</i> (warm, cold) and <i>type of conduct</i> (error, no-error), we aimed to investigate if the older adult participants would trust a purposefully faulty robot when the robot exerted a warm behaviour enhanced with non-functional touch more than a robot that did not, and in what way the robot error affected trust. Lastly, we also investigated the relationship between trust and a proxy variable of actual use of robots (i.e., <i>intention to use robots at home</i>). Given the volatile and context-dependent nature of trust, our close-to real-world scenario of elder-robot interaction involved the administration of health supplements, in which the severity of robot error might have a greater implication on the perceived trust.</p>
+</section>
+<section id="doc-1727-uncovering-the-heterogeneity-in-fitness-app-use-a-latent-class-analysis-of-chinese-users" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1727-uncovering-the-heterogeneity-in-fitness-app-use-a-latent-class-analysis-of-chinese-users">Doc 1727 : <b> Uncovering the Heterogeneity in Fitness App Use: A Latent Class Analysis of Chinese Users </b></h2>
+<p><a href="https://doi.org/10.3390/ijerph191710679" class="uri">https://doi.org/10.3390/ijerph191710679</a><br>
+<i> Crystal Li Jiang </i><br>
+<i> Mengru Sun </i><br>
+<i> Guanxiong Huang </i></p>
+<p>This study examines fitness app use patterns and their correlates among Chinese users from the perspectives of uses and gratification theory and self-determination theory. Our sample comprised 632 users of WeRun, the fitness plugin of <span style="background-color:lightgreen">WeChat</span>, the largest Chinese mobile social networking app; participants completed an online survey and provided self-tracked physical activity data, which were subjected to latent class analysis. Based on the four-class latent class model (which yielded the best model fit and the most interpretable results), 30.5%, 27.5%, 24.7%, and 17.3% of the users were categorized as light users, reward-oriented users, lifestyle-oriented users, and interaction-oriented users, respectively. Moreover, class membership was associated with gender, age, education, income, life satisfaction, <span style="background-color:cyan">autonomy</span>, and platform-based motivations. There is a significant heterogeneity in fitness app use and exercise behaviors. Platform-based motivations and <span style="background-color:cyan">autonomy</span> are important classification factors, as users are looking for specific kinds of gratification from their use of fitness apps. Demographics and individual characteristics are also explanatory factors for class membership. The study findings suggest that fitness app designers should segment users based on motivation and gratification.</p>
+</section>
+<section id="doc-1728-relationships-between-ict-use-for-task-and-social-functions-work-characteristics-and-employee-task-proficiency-and-job-satisfaction-does-age-matter" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1728-relationships-between-ict-use-for-task-and-social-functions-work-characteristics-and-employee-task-proficiency-and-job-satisfaction-does-age-matter">Doc 1728 : <b> Relationships between ICT Use for Task and Social Functions, Work Characteristics, and Employee Task Proficiency and Job Satisfaction: Does Age Matter? </b></h2>
+<p><a href="https://doi.org/10.3390/merits2030016" class="uri">https://doi.org/10.3390/merits2030016</a><br>
+<i> Carolin Dietz </i><br>
+<i> Pauline Bauermann </i><br>
+<i> Hannes Zacher </i></p>
+<p>Digitalization and demographic change represent two megatrends that impact organizations and workplaces around the globe. Rapid developments in <span style="background-color:lightgreen">information and communication technolog</span>y (ICT) are fundamentally changing the ways in which work is conducted. At the same time, workforces are becoming increasingly older and age diverse. Integrating the model of workplace ICT use and work design with socioemotional selectivity theory from the lifespan development literature, we investigate employee age as a moderator of the indirect and total effects of ICT use for task and social functions on self-rated task proficiency and job satisfaction. As potential mediators, we focus on three job-related resources: job <span style="background-color:cyan">autonomy</span>, team cohesion, and task significance. Data were collected from 1761 employees at three measurement points across two months. The results showed that ICT use for task and social functions were not significantly associated with job <span style="background-color:cyan">autonomy</span>, team cohesion, task significance, task proficiency, and job satisfaction, while controlling for baseline levels of these mediator and outcome variables. Job <span style="background-color:cyan">autonomy</span> was negatively related to task proficiency, and team cohesion was positively related, whereas both job <span style="background-color:cyan">autonomy</span> and team cohesion were positively related to job satisfaction. Contrary to expectations, age did not moderate the indirect and total effects of ICT use for task and social functions on task proficiency and job satisfaction. We discuss the implications of our findings for future research and practice regarding ICT use and age in the work context.</p>
+</section>
+<section id="doc-1729-alert-plan-application-mysolutions---lived-experiences-of-users-with-a-serious-mental-illness" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1729-alert-plan-application-mysolutions---lived-experiences-of-users-with-a-serious-mental-illness">Doc 1729 : <b> Alert plan-application “MySolutions” - lived experiences of users with a serious mental illness </b></h2>
+<p><a href="https://doi.org/10.1192/j.eurpsy.2022.360" class="uri">https://doi.org/10.1192/j.eurpsy.2022.360</a><br>
+<i> J. Bom </i><br>
+<i> J. Bruintjes </i><br>
+<i> B. Sportel </i></p>
+<p>Introduction In daily life an alert or relaps prevention plan can be a helpful tool in preventing patients with severe mental illness (SMI) from relapse. However, patients often find it hard to keep the paper version close by. A <span style="background-color:lightgreen">smartphone</span> version could be a solution. “MySolutions” is a webapplication providing the possibility to add e.g.&nbsp;pictures or music to the alert plan, which could be helping in time of need. Objectives To describe the lived experiences of patients with (SMI) with the webapplication ‘MySolutions’ and get insight in the helping and hindering characteristics of the application. Methods Qualitative research in a fenomenological framework. Eight interviews were held with outpatients with SMI. All interviews where methodically analyzed using the steps of Colaizzi (1978). Results In general, users were enthousiastic about the look and feel of the application. Using the application was considerd easy. Lived experiences of participants displayed the following themes: <span style="background-color:cyan">Autonomy</span>, Acceptance, Frustration, Self confidence, and Reassurance. By practicing and adding photos and music, they perceived the webapplication to be a personal aid tool for experienced problems related to mental vulnerability in daily life. Participants also reported more difficulties in using the application in times of dysregulation. Conclusions The webapplication can be a valuable addition to the alert plan for people with SMI due to the possibility of personalization and the fact it is always available on a <span style="background-color:lightgreen">mobile phone</span>. The application seems particularly suiting for people in a stabile phase. Future research should focus on phase of recovery in relation to use of the application. Disclosure No significant relationships.</p>
+</section>
+<section id="doc-1730-positive-digital-communication-among-youth-the-development-and-validation-of-the-digital-flourishing-scale-for-adolescents" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1730-positive-digital-communication-among-youth-the-development-and-validation-of-the-digital-flourishing-scale-for-adolescents">Doc 1730 : <b> Positive digital communication among youth: The development and validation of the digital flourishing scale for adolescents </b></h2>
+<p><a href="https://doi.org/10.3389/fdgth.2022.975557" class="uri">https://doi.org/10.3389/fdgth.2022.975557</a><br>
+<i> Jasmina Rosič </i><br>
+<i> Sophie H. Janicke-Bowles </i><br>
+<i> Luca Carbone </i><br>
+<i> Bojana Lobe </i><br>
+<i> Laura Vandenbosch </i></p>
+<p>Research has extensively studied the negative effects of digital communication on adolescents’ well-being. However, positive digital experiences and behavior in adolescence are still poorly understood. The recently developed Digital Flourishing Scale addresses this gap and focuses on the positive perceptions of a user’s experiences and behaviors in digital communication among adults. In this paper, we developed an adolescent version of this scale. Study 1 demonstrated the internal consistency of the scale and the same factor structure for adolescence as for adulthood: connectedness, civil participation, positive social comparison, authentic self-presentation, and self-control. Study 2 confirmed the identified factor structure with a second sample of adolescents and established measurement invariance across genders. The construct validity of the scale was confirmed by investigating associations with related constructs, including the basic psychological needs from self-determination theory (competence, <span style="background-color:cyan">autonomy</span>, and relatedness), secure attachment to a close friend, <span style="background-color:lightgreen">Internet</span> aggression, <span style="background-color:lightgreen">social media</span>-induced inspiration, authenticity of posted positive content, and <span style="background-color:lightgreen">social media</span> self-control failure. The results indicated that not all adolescents flourish equally online. Differences occurred depending on the adolescents’ gender and socioeconomic status. The paper concludes that the newly developed scale is a valid and reliable measure for assessing adolescents’ perceptions of digital thriving and digital empowerment.</p>
+</section>
+<section id="doc-1731-digital-literacy-the-case-of-côte-divoire-port-bouët-yopougon" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1731-digital-literacy-the-case-of-côte-divoire-port-bouët-yopougon">Doc 1731 : <b> Digital Literacy: The Case of Côte d’Ivoire (Port-Bouët, Yopougon) </b></h2>
+<p><a href="https://doi.org/10.47191/ijsshr/v5-i8-71" class="uri">https://doi.org/10.47191/ijsshr/v5-i8-71</a><br>
+<i> No Author Names </i></p>
+<p>Being literate in a given language is a vital issue, it is an essential condition to allow a speaker to achieve greater <span style="background-color:cyan">autonomy</span> in his socio-professional field of reference. In Côte d’Ivoire, upgrading the national education system and expanding it in terms of training opportunities is a central part of the government’s strategy ; the aim being to strengthen national unity and support economic growth. And, considered as tools of potential contribution to education and training, <span style="background-color:lightgreen">Information and Communication Technolog</span>ies for Education (ICTE) could help anyone wishing to acquire skills and competences to improve professional, economic and social well-being. Hence the idea of using them in an innovative literacy approach called « digital literacy » with « Alphatic ». The experimental framework chosen falls within the municipalities of Port-Bouët and Yopougon (District Autonome d’Abidjan).</p>
+</section>
+<section id="doc-1732-the-use-of-information-and-communication-technology-as-learning-sources-in-english-language-learning" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1732-the-use-of-information-and-communication-technology-as-learning-sources-in-english-language-learning">Doc 1732 : <b> The Use of Information and Communication Technology as Learning Sources in English Language Learning </b></h2>
+<p><a href="https://doi.org/10.47191/ijmra/v5-i9-02" class="uri">https://doi.org/10.47191/ijmra/v5-i9-02</a><br>
+<i> No Author Names </i></p>
+<p>The <span style="background-color:lightgreen">internet</span> undoubtedly saves time and effort, with motivation playing a critical influence in the successful status of advanced English learning. This is carried out through the crucial role of <span style="background-color:lightgreen">information and communication technolog</span>y in English language education. Therefore, this study aims to analyze the utilization of <span style="background-color:lightgreen">information and communication technolog</span>y as learning resources for English language education. The utilized analytical methods were obtained from a literature review on the relevant sources observed through Google Scholar. The results showed that technology carried out the following, (1) promoted teacher-student interaction, (2) provided understandable input and output, (3) helped develop critical thinking skills, (4) enabled more students’ learning and teaching processes, (5) encouraged and built <span style="background-color:cyan">autonomy</span> and self-confidence, and (6) increased students’ motivation to successfully learn English language.</p>
+</section>
+<section id="doc-1733-pedagogical-conditions-to-form-students-creativity" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1733-pedagogical-conditions-to-form-students-creativity">Doc 1733 : <b> PEDAGOGICAL CONDITIONS TO FORM STUDENTS’ CREATIVITY </b></h2>
+<p><a href="https://doi.org/10.14529/ped220302" class="uri">https://doi.org/10.14529/ped220302</a><br>
+<i> G.Ya. Grevtseva </i></p>
+<p>Changes in the education system require a person to have a creative attitude to activity, mobility, responsibility, and new technologies. To form the creativity of students, it is necessary to use innovative technologies and the peculiarities of the digital environment. The author identifies the pedagogical conditions for the formation of students’ creativity. The theoretical and empirical methods used are the analysis of key concepts, observation, a survey and the analysis of students’ outcomes. The key concepts of creativity are clarified: “creativity” and the “ability to be creative”. The essential characteristics of creativity are revealed. The pedagogical conditions to form students’ creativity are revealed. They are: to include problem-solving tasks and pedagogical situations; to use reflection; to apply innovative pedagogical technologies. The creative technologies that contribute to the formation of students’ creativity are identified. The most effective technologies that contribute to the development of students’ creative abilities are <span style="background-color:lightgreen">information and communication technolog</span>ies, project work, gamification, module learning, and group technologies. The common features of these technologies are cooperation, student’s <span style="background-color:cyan">autonomy</span> and reflexive activity. The identified effective technologies and creative tasks offered can be used by the academic staff that implement Bachelor’s and Master’s education programs.</p>
+</section>
+<section id="doc-1734-the-process-of-contemporary-gay-identity-development-in-china-the-influence-of-internet-use" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1734-the-process-of-contemporary-gay-identity-development-in-china-the-influence-of-internet-use">Doc 1734 : <b> The process of contemporary gay identity development in China: The influence of internet use </b></h2>
+<p><a href="https://doi.org/10.3389/fpubh.2022.954674" class="uri">https://doi.org/10.3389/fpubh.2022.954674</a><br>
+<i> Aidi Zhang </i><br>
+<i> Nancy R. Reynolds </i><br>
+<i> Chongmei Huang </i><br>
+<i> Simin Tan </i><br>
+<i> Guoli Yang </i><br>
+<i> Jin Yan </i></p>
+<p>Background Adolescence and emerging adulthood are critical periods for an individual’s sexual identity development. The <span style="background-color:lightgreen">internet</span> has become a primary avenue for gay identity exploration. The purpose of this study was to examine the role of the <span style="background-color:lightgreen">internet</span> in Chinese young gay male’s sexual identity development. Methods Qualitative interviews were conducted with 37 gay males aged 16 to 29. Data were analyzed using grounded theory methods. Results Three categories of identity development in relation to use of the <span style="background-color:lightgreen">internet</span> were identified: (1) Gay identity confirming , which includes verifying same-sex attraction and connecting the attraction feeling to gay identity through consumption of pornography, Tanbi (boy’s love) materials, and searching for information online. (2) Gay identity practicing , includes interacting with the gay community to gain understandings of gay subcultures and make close gay friends, engaging in same-sex sexual and romantic relationship development through online group and interpersonal interactions. The <span style="background-color:lightgreen">internet</span> practice impact on an individual’s cognition and behavior by presenting same-sex sexual contact is normal and common, facilitating longing for a romantic relationship, and facilitating relationship development; and (3) Gay identity coping , includes increasing self-acceptance of gay identity, gaining a sense of belonging in the gay community, increasing <span style="background-color:cyan">autonomy</span> in sexual and romantic relationship development, and growing consideration of coming out to parents. Young gay males’ coping efficacy was gained through the lessons learned from identity practice. Conclusion The findings indicate that an individual’s <span style="background-color:lightgreen">internet</span> practice facilitates gay identity confirmation, enriches identity practice, and promotes the transition from self-identification to identity disclosure and integration. <span style="background-color:lightgreen">Internet</span> practice also threatens to young gay males’ sexual risk behavior, emotional hurts from failed romantic relationships. Interventions including sexual identity education and healthy <span style="background-color:lightgreen">internet</span> use strategies need to be developed tailored to the developmental characteristics.</p>
+</section>
+<section id="doc-1735-interaction-online-a-reevaluation" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1735-interaction-online-a-reevaluation">Doc 1735 : <b> Interaction Online: A Reevaluation </b></h2>
+<p><a href="http://www.anitacrawley.net/Resources/Articles/INTERACTION%20ONLINE.pdf" class="uri">http://www.anitacrawley.net/Resources/Articles/INTERACTION%20ONLINE.pdf</a><br>
+<i> John T. Battalio </i></p>
+<p>Instructors commonly assume that the successful online course must replicate its live counterpart by including a variety of interactions among student, instructor, and computer. Given the changing lifestyles prompted by an evolving <span style="background-color:lightgreen">Internet</span>, an increasing student need for <span style="background-color:cyan">autonomy</span>, and student learning styles, highly interactive courses may not necessarily be the best online approach. In this article, I review research dealing with interactive environments, present the results of my own interaction study, and propose an integrative approach for the use of interaction that sees it in light of the increasing integration of the <span style="background-color:lightgreen">Internet</span> into students’ daily lives.</p>
+</section>
+<section id="doc-1736-when-compelled-to-fb-around-academic-texts-postgraduate-students-reflected-on-their-online-experience." class="level2">
+<h2 class="anchored" data-anchor-id="doc-1736-when-compelled-to-fb-around-academic-texts-postgraduate-students-reflected-on-their-online-experience.">Doc 1736 : <b> When Compelled to FB around Academic Texts: Postgraduate Students Reflected on Their Online Experience. </b></h2>
+<p><a href="https://doi.org/10.32890/mjli.10.2013.7649" class="uri">https://doi.org/10.32890/mjli.10.2013.7649</a><br>
+<i> Sarimah Abdullah </i><br>
+<i> Aizan Yaacob </i><br>
+<i> Fauziah Abdul Rahim </i></p>
+<p>Purpose – This paper is part of a larger study which explored postgraduate students talk around academic texts via <span style="background-color:lightgreen">Facebook</span> (FB). Our exploration is largely guided by the idea of reading as a social practice. In this paper, we specifically focus on the students’ reflections of their online experience of talking around academic texts. Method – The qualitative data used in this paper were derived from students’ reflective diaries, students’ FB interactions, and informal conversations and were collected from a group of students (27) attending a master’s class in distance learning mode.Thematic analysis was conducted to examine the themes that emerged to represent their reflections.Findings – The students’ reflections were grouped into two major categories: convenience and facilitation of learning.Students’ reflection on the convenience afforded by the FB talk centered mainly on the idea of distance and time. Their reflections on the facilitation of learning were broken down into the following themes: safe environment to explore, social support, self-regulation and <span style="background-color:cyan">autonomy</span>.A separate category, “FB entries need responding”, was assigned to students’ comments about the importance of lecturer’s and group members’ feedback.Value – This study revealed the potential of FB as a convenient, safe and an informal avenue for students to share their understandings and reading-related problems.The informal nature of their FB experience supported free exploration of ideas without the worry of having to appear “clever”.</p>
+</section>
+<section id="doc-1737-an-autonomy-supporting-cardiovascular-prevention-programme-practical-recommendations-from-self-determination-theory" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1737-an-autonomy-supporting-cardiovascular-prevention-programme-practical-recommendations-from-self-determination-theory">Doc 1737 : <b> An autonomy-supporting cardiovascular prevention programme: Practical recommendations from Self-Determination Theory </b></h2>
+<p><a href="http://doclib.uhasselt.be/dspace/bitstream/1942/9060/2/jacobs2008.pdf" class="uri">http://doclib.uhasselt.be/dspace/bitstream/1942/9060/2/jacobs2008.pdf</a><br>
+<i> Nele Jacobs </i><br>
+<i> Neree Claes </i></p>
+<p>*Corresponding Author: Nele Jacobs; <span style="background-color:lightgreen">email</span>: nele.jacobs @ uhasselt.be Abstract Health promotion is an important challenge for the health sector in the 21st century. Chronic diseases such as cardiovascular disease (CVD) can be avoided by, amongst other things, making prudent lifestyle changes. However, stimulating long-term behaviour change remains an important challenge for health promotion practitioners. SelfDetermination Theory (SDT) has been applied in various health care settings to facilitate long-term behaviour change with some evidence of positive outcomes. From the perspective of SDT the effectiveness of prevention programmes should not only be defined as the proportion of participants that comply with recommendations, but should also give information on the level of autonomous motivation of the compliers. SDT would suggest that to stimulate the development of autonomous motivation and long-term behaviour change, <span style="background-color:cyan">autonomy</span>-supporting interventions should be developed. Health care professionals can enhance patient behaviour change outcomes through support of patients’ psychological needs for <span style="background-color:cyan">autonomy</span>, competence, and relatedness. However, the health promotion field, involving health practitioners with various professional backgrounds, requires a more practical and specific summary of recommendations to improve the quality of intervention design. The aim of this manuscript is to describe in detail how practical recommendations from SDT were applied to a cardiovascular prevention programme in Belgium.</p>
+</section>
+<section id="doc-1738-metodologia-do-desenvolvimento-um-estudo-de-criação-de-um-ambiente-de-e-learning-para-o-ensino-presencial-universitário" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1738-metodologia-do-desenvolvimento-um-estudo-de-criação-de-um-ambiente-de-e-learning-para-o-ensino-presencial-universitário">Doc 1738 : <b> Metodologia do desenvolvimento: um estudo de criação de um ambiente de e-learning para o ensino presencial universitário </b></h2>
+<p><a href="https://repositorium.sdum.uminho.pt/bitstream/1822/8129/1/artigo_unisinos_06.pdf" class="uri">https://repositorium.sdum.uminho.pt/bitstream/1822/8129/1/artigo_unisinos_06.pdf</a><br>
+<i> Lia Raquel Oliveira </i></p>
+<p>Within the framework of the Information Society, we carried out a developmental research2 that focuses on the process of conception, implementation and evaluation of a virtual learning environment model (prototype of an <span style="background-color:lightgreen">Internet</span> device) aimed at university teaching. The course that serves the modelization is Educational Technology in the context of initial teacher training. One of the purposes of the research was to understand the overall process concerning the design of the environment and validate it for further development. Another aim was to discuss a pedagogical issue that is related to questions such as: From a pedagogical perspective, what is the gain in introducing web technologies at university presential teaching? Can the flexibilization allowed by these technologies potentiate learners’ <span style="background-color:cyan">autonomy</span> and, thus, enable the acquisition of skills that are necessary for them to learn throughout their lives? What happens when a system like this is used? In the text we present the study and emphasize the methodology adopted due to the fact that it is new in the Portuguese context. Key words: developmental research, e-learning, university pedagogy.</p>
+</section>
+<section id="doc-1739-15-apps-every-principal-should-have-whether-fostering-collaboration-easing-communication-or-tracking-common-core-these-mission-critical-applications-keep-todays-principals-connected-with-their-colleagues-students-and-parents" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1739-15-apps-every-principal-should-have-whether-fostering-collaboration-easing-communication-or-tracking-common-core-these-mission-critical-applications-keep-todays-principals-connected-with-their-colleagues-students-and-parents">Doc 1739 : <b> 15 Apps Every Principal Should Have: Whether Fostering Collaboration, Easing Communication or Tracking Common Core, These Mission-Critical Applications Keep Today’s Principals Connected with Their Colleagues, Students and Parents </b></h2>
+<p><a href="https://www.questia.com/library/journal/1G1-381286443/15-apps-every-principal-should-have-whether-fostering" class="uri">https://www.questia.com/library/journal/1G1-381286443/15-apps-every-principal-should-have-whether-fostering</a><br>
+<i> Greg Thompson </i></p>
+<p>There may be hundreds of thousands of apps in the various app stores, but only a minuscule percentage of those are actually useful, and an even smaller percentage are relevant to the job duties of the mobile-minded principal. To help separate the wheat from the chaff, THE Journal asked five tech-savvy principals in five different states to reveal their favorite work-related apps. And just to be clear: Candy Crush doesn’t count, even if it does relieve stress after a tough day. Augmenting (and Staying Connected With) Reality Scott D. Godshalk, principal at 400-student Tohickon Valley Elementary School in Quakertown, PA, indulges his taste for the cutting edge with a free augmented reality app called Aurasma from HP <span style="background-color:cyan">Autonomy</span>. Aurasma’s commercial applications include holding a <span style="background-color:lightgreen">smartphone</span> over a movie trailer, for example, then watching that picture come to life through the phone with full video. This is all about taking a picture, and then creating an aura for that picture, and it’s pretty wild actually, said Godshalk. was trying to come up with a way to create a virtual tour of the building. have new students coming in frequently, and I thought it would be interesting, because we have a lot of iPads here at With the help of the Aurasma app, students and parents can take a guided tour of the school. At different points in the school, Godshalk said, ’They hold their device, point it at the certain picture, and that picture kind of comes to life on their screen, and there is a teacher describing, in a video–what happens in the physical education classes, for example. call it a trigger image. As your device recognizes that trigger image, it triggers the video that’s associated with it. As people walk through the school, they can learn more about individuals in our programs through this app. [ILLUSTRATION OMITTED] While it’s not nearly as exotic, Godshalk said the app he uses the most is Google Drive. Located at the top of his tablet and <span style="background-color:lightgreen">smartphone</span> displays, the familiar app drives what I do all day long, he said. I say it’s a basic app, I mean it is a shared document. deal a lot with online forms and documents. Having everybody with access to these documents has increased our efficiency. In the realm of classroom management, Godshalk seeks to help his teachers with the high-tech equivalent of a gold star for students. The free app ClassDojo is essentially a behavior management tool. Teachers set up this app, and it’s a mechanism to give feedback to students, he explained. They bring this up on their computers through the website, but it’s also accessible through iPads and iPhones. When a teacher sees a student doing something that is appropriate, they touch that student’s icon on the iPad, which communicates with the website with an audible sound that is positive. Kids get that feedback up on the screen. started using this in the cafeteria, the bane of every principal’s existence, continued Godshalk, who is now in his 10th year as Tohickon Valley’s principal. We had each class in the cafeteria set up with their own little icon, and as they were demonstrating the appropriate behaviors, lunch aides were using iPads and giving points to classes, and they would see and hear the positive signal. Preparing for CCSS With Interactive Conversations Kara M. Butler, principal at 1,400-student Cupertino Middle School in Sunnyvale, CA, keeps her staff on the Common Core track with Common Core Look-fors (CCL4), which is $2.99 on iTunes. The app allows Butler to go into classrooms and make notes about activities connected to the standards. Butler, now in her ninth year as Cupertino’s principal, said, can even videotape and record things that are happening in the class for posterity, then provide feedback for teachers. All of that goes into a file for me to accumulate information as to what I’m seeing in my classrooms. …</p>
+</section>
+<section id="doc-1740-neither-autonomy-nor-elite-steering-a-political-communication-analysis-of-campaign-and-general-tweeting-in-the-2012-u.s.-election" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1740-neither-autonomy-nor-elite-steering-a-political-communication-analysis-of-campaign-and-general-tweeting-in-the-2012-u.s.-election">Doc 1740 : <b> Neither Autonomy Nor Elite Steering: A Political Communication Analysis of Campaign and General Tweeting in the 2012 U.S. Election </b></h2>
+<p><a href="https://doi.org/10.2139/ssrn.2314581" class="uri">https://doi.org/10.2139/ssrn.2314581</a><br>
+<i> Michael J. Jensen </i></p>
+<p>This paper investigates the relationship between campaign communications and the discursive frames articulated more generally by <span style="background-color:lightgreen">social media</span> users in the context of the 2012 U.S. presidential election. It identifies campaign frames with respect to the clusters of terms produced by the campaigns themselves and identifies the extent to which these same clusters prevail over time throughout the campaign in the tweets produced by <span style="background-color:lightgreen">Twitter</span> users more generally. The findings suggest that some frames fail to resonate at all while others prevail primarily with the intensification of campaign communications. These results indicate that tweets produced by the general public are neither wholly steered by elites nor wholly autonomous. Rather they appear dialogical.</p>
+</section>
+<section id="doc-1741-engaging-young-adolescents-in-school-based-writing" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1741-engaging-young-adolescents-in-school-based-writing">Doc 1741 : <b> Engaging Young Adolescents in School-Based Writing </b></h2>
+<p><a href="https://eric.ed.gov/?id=EJ1144798" class="uri">https://eric.ed.gov/?id=EJ1144798</a><br>
+<i> Deborah S. Yost </i><br>
+<i> Ling L. Liang </i><br>
+<i> Robert Vogel </i></p>
+<p>INTRODUCTIONHow might middle school teachers and schools more appropriately engage early adolescent students in the writing process so that they are motivated and engaged to want to write and write well? We know that education for young adolescents must be developmentally responsive, challenging, empowering, and equitable. There is also a need for strong, authentic relationships among and between the student, curriculum, community, teacher, and school. As well, the curriculum must engage students in active, purposeful learning. These essential attributes connect to the literature on student engagement and highlight a unique approach to writing that has been implemented in Philadelphia area schools over the past 10 years.The purpose of this article is to introduce Writers Matter, an approach designed to engage and motivate young adolescents in the writing process, connect this approach to the student engagement literature and provide research results from a pre-post writing survey that focuses on student engagement. Writers Matter supports literacy, equity, and excellence in middle grades through its focus on <span style="background-color:cyan">autonomy</span>, voice, and relationship building in the context of writing tasks that connect to personal experience and other content areas (Yost «fe Vogel, 2012).RELATED RESEARCH ON STUDENT ENG A GEMENTAdolescents write all the time, through text messages, <span style="background-color:lightgreen">Twitter</span>, and blogs. Why is it that so many adolescents are less motivated to complete writing tasks required in school? The literature on student engagement may provide the reader with some answers, since it is well known that engaged students are more successful in school (Fredricks, Blumenfeld, «fe Paris, 2004; Martin «fe Dowson, 2009; Osterman, 2000; Wang The school engagement literature seeks to discover ways to create environments that stimulate greater learning. According to Fredricks et al.&nbsp;(2004), many adolescents view school as boring or a grade game, in which students try to get by with as little effort as pos* sible (p.&nbsp;60). Further, these authors state that recent studies have shown steep declines in school motivation among adolescents. The literature defines engagement in three ways (Fredricks et al., 2004):* Behavioral engagement includes involvement in academic or social/extracurricular activities.* Cognitive engagement centers on students’ motivation or drive to persist on academic tasks, thus developing and using self-regulation strategies in order to succeed.* Emotional engagement focuses on adolescents’ positive or negative reactions to teachers, classmates, academics, and the school.All contribute in different ways to increased academic learning and achievement.Cognitive EngagementCognitive engagement comprises a willingness on the part of students to expend the necessary effort to master difficult skills using strategies that support learning. Studies have found that students are strategic about their learning in settings that are socially supportive, respectful, challenging and autonomous (Fredricks et al., 2004). Cognitive engagement occurs when class members actively debate and discuss ideas, and engage in a critique of others’ work in an environment that is mutually respectful. A key concept in this research is that cognitive engagement occurs more readily in supportive, caring learning environments.Peterson and Hittie (2003) identify several attributes of a supportive learning community:* belonging (feeling a valued member of a group);* inclusion (membership in the group is open and diversity is valued);* support and care (group members receive support, mentoring, assistance, and caring they need in order to develop coping strategies; all members of the group help each other to achieve, which is a community goal);* contributions and responsibility (all members have an obligation to contribute to the common good); and* democratic problem solving (conflicts are managed by inclusive dialogue and democratic decision making; listening, understanding, and perspective taking are crucial prerequisites). …</p>
+</section>
+<section id="doc-1742-west-germany-assuring-the-allies" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1742-west-germany-assuring-the-allies">Doc 1742 : <b> WEST GERMANY-Assuring the Allies </b></h2>
+<p><na><br>
+<i> Ramesh Jaura </i></na></p>
+<p>﻿leader was a mediator. Partha <span style="background-color:lightgreen">Chat</span>- terjee expanded on this latter point by asking Chakravarty what, in his view, would constitute change. Was not the worker-trade union leader relationship an essentially new one? The trade union leader had, in fact, a bourgeois understanding of his role as a political representative of the people. Dipesh Chakravarty replied that although there were obvious empirical differences between rural zamindar-dominated society and urban industrial society, relationships of power and authority continued to be similar. He accepted that his analysis was pessimistic, but in India there were few grounds for optimism. It was one thing to believe in the possibility of a change for the better, another to argue that it was coming in the near future. He accepted the possibility of change, but: not the immediate likelihood, and this essay was an attempt to understand why this was so. He felt that Marxists who analysed all problems in terms of structure and superstructure tended to be blind to the critical problem of culture, and he argued that there is a great need for a theory of culture in Marxist writing. In conclusion, we may say that the papers presented at this conference showed a greater awareness of the need to analyse the relationship of collaboration between subaltern and elite classes as well as that of conflict. Other elements which came out in the whole discussion were the need to combat narrow economistic explanations for subaltern actions, the need to focus strongly on political relationships, the relative <span style="background-color:cyan">autonomy</span> which exists between the thought and actions of elite and subaltern classes, and the need to understand better the nature of the tenacious hold of culture within the Indian social formation. The study of subaltern consciousness and culture, it was brought out, was central to the whole project. In this, the authors of these papers accepted the need to approach popular beliefs and understandings through a more sophisticated analysis of texts. This is, perhaps, one of the directions in which we may expect the subaltern studies project to move in the future.</p>
+</section>
+<section id="doc-1743-language-economy-as-evidence-of-learner-autonomy" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1743-language-economy-as-evidence-of-learner-autonomy">Doc 1743 : <b> Language Economy as Evidence of Learner Autonomy </b></h2>
+<p><a href="http://rapidintellect.com/AEQweb/5259new.pdf" class="uri">http://rapidintellect.com/AEQweb/5259new.pdf</a><br>
+<i> Jonathan White </i></p>
+<p>We argue here that using an economised language in <span style="background-color:lightgreen">computer-mediated</span> communication is evidence that learners are autonomous. Data is analysed from text <span style="background-color:lightgreen">chat</span>logs in English, and we see evidence of s …</p>
+</section>
+<section id="doc-1744-on-being-transhuman-commercial-bcis-and-the-quest-for-autonomy" class="level2">
+<h2 class="anchored" data-anchor-id="doc-1744-on-being-transhuman-commercial-bcis-and-the-quest-for-autonomy">Doc 1744 : <b> On Being Transhuman: Commercial BCIs and the Quest for Autonomy </b></h2>
+<p><a href="https://doi.org/10.2139/ssrn.3840840" class="uri">https://doi.org/10.2139/ssrn.3840840</a><br>
+<i> Argyro Karanasiou </i></p>
+<p><span style="background-color:lightgreen">Facebook</span>’s catchphrase “What’s on your mind”, prompting the user to share thoughts with their digital social circles, has gained a new, literal meaning in recent years: targeted advertising, fake news and computational propaganda all being examples of mental ma-nipulation exerted for profit or for power through harnessing AI at scale for the purposes of online profiling. In most cases, this in-volves an elaborate interpretation of one’s digital footprint: the huge amount of data that is generated by our daily online and offline in-teractions and which defines our behaviour. This chapter takes a slightly different approach and seeks to explore the use of AI to re-trieve, analyse and predict data that has not been externalised, yet which most defines us: brain data. There has never been a more promising time in history for delineating the contours of human thought: Public and privately funded projects studying the human brain have produced a high vol-ume of scientific papers and findings in the last few decades, which more often than not are sensationalised in the news. The ambitious plan to explain the mysteries of the human brain has not fully materialised, however ambition drives profit, and therefore the idea of using AI to decode the human brain has been a fast growing commercial venture for many tech giants, who have been investing heavily in corporate R &amp; D neurotech related projects. The chapter proceeds in four parts: Part 1 offers a historical overview of “mind reading” techniques, building up some context as to how the neurotech market boomed and started employing AI to unravel the mysteries of the human brain beyond the clinical sphere. This is then followed by a techno-legal evaluation of the monitoring, collection and analysis of brain imaging data from the use of com-mercial BCIs in Part 2. Building further on this, Part 3 explores the scope for user empowerment and agency in commercial BCI. This will lead to the main argument put forth in Part 4, namely the fact that commercial BCI constitutes a special case that seems to fall through the cracks of robust data protection frameworks, such as the GDPR. In conclusion, the chapter highlights the need for data protection laws to reflect the conceptual redefinition of <span style="background-color:cyan">autonomy</span> in the light of AI- driven pervasive neurotechnologies.</p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "Inspect Abstracts"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="an">author:</span><span class="co"> "Felix Dietrich &amp; Leonard Reinecke"</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="an">date:</span><span class="co"> "last-modified"</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="an">categories:</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">  - "Autonomy"</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">  - "Digital Media"</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">  - "Self-Determination"</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">---</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="in">```{r}</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#| label: inspect abstracts</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#| output: false</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#| message: false</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co"># libs</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="fu">library</span>(RVerbalExpressions)</span>
+<span id="cb2-22"><a href="#cb2-22"></a></span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="co"># load data</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a>clean_papers <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"../data/clean_papers.rds"</span>)</span>
+<span id="cb2-25"><a href="#cb2-25"></a></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="co"># define search term</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a>regex_cmc <span class="ot">&lt;-</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a>  <span class="fu">rx_with_any_case</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-29"><a href="#cb2-29"></a>  <span class="fu">rx_either_of</span>(</span>
+<span id="cb2-30"><a href="#cb2-30"></a>    <span class="st">"internet"</span>,</span>
+<span id="cb2-31"><a href="#cb2-31"></a>    <span class="st">"cyber"</span>,</span>
+<span id="cb2-32"><a href="#cb2-32"></a>    <span class="st">"online media"</span>,</span>
+<span id="cb2-33"><a href="#cb2-33"></a>    <span class="st">"online communication"</span>,</span>
+<span id="cb2-34"><a href="#cb2-34"></a>    <span class="st">"online social network"</span>,</span>
+<span id="cb2-35"><a href="#cb2-35"></a>    <span class="st">"online communit"</span>,</span>
+<span id="cb2-36"><a href="#cb2-36"></a>    <span class="st">"chat"</span>,</span>
+<span id="cb2-37"><a href="#cb2-37"></a>    <span class="st">"email"</span>,</span>
+<span id="cb2-38"><a href="#cb2-38"></a>    <span class="st">"computer-mediated"</span>,</span>
+<span id="cb2-39"><a href="#cb2-39"></a>    <span class="st">"mobile phone"</span>,</span>
+<span id="cb2-40"><a href="#cb2-40"></a>    <span class="st">"smartphone"</span>,</span>
+<span id="cb2-41"><a href="#cb2-41"></a>    <span class="st">"instant mess"</span>,</span>
+<span id="cb2-42"><a href="#cb2-42"></a>    <span class="st">"mobile mess"</span>,</span>
+<span id="cb2-43"><a href="#cb2-43"></a>    <span class="st">"social media"</span>,</span>
+<span id="cb2-44"><a href="#cb2-44"></a>    <span class="fu">rx</span>() <span class="sc">%&gt;%</span> <span class="fu">rx_find</span>(<span class="st">"social "</span>) <span class="sc">%&gt;%</span> <span class="fu">rx_find</span>(<span class="st">"network"</span>) <span class="sc">%&gt;%</span> <span class="fu">rx_anything</span>(<span class="at">mode =</span> <span class="st">"lazy"</span>) <span class="sc">%&gt;%</span> <span class="fu">rx_find</span>(<span class="st">"site"</span>) <span class="sc">%&gt;%</span> <span class="fu">rx_anything</span>(<span class="at">mode =</span> <span class="st">"lazy"</span>),</span>
+<span id="cb2-45"><a href="#cb2-45"></a>    <span class="st">"information and communication technolog"</span>,</span>
+<span id="cb2-46"><a href="#cb2-46"></a>    <span class="st">"facebook"</span>,</span>
+<span id="cb2-47"><a href="#cb2-47"></a>    <span class="st">"instagram"</span>,</span>
+<span id="cb2-48"><a href="#cb2-48"></a>    <span class="st">"snapchat"</span>,</span>
+<span id="cb2-49"><a href="#cb2-49"></a>    <span class="st">"twitter"</span>,</span>
+<span id="cb2-50"><a href="#cb2-50"></a>    <span class="st">"wechat"</span>,</span>
+<span id="cb2-51"><a href="#cb2-51"></a>    <span class="st">"weibo"</span>,</span>
+<span id="cb2-52"><a href="#cb2-52"></a>    <span class="st">"texting"</span>)</span>
+<span id="cb2-53"><a href="#cb2-53"></a></span>
+<span id="cb2-54"><a href="#cb2-54"></a><span class="co"># define highlighter</span></span>
+<span id="cb2-55"><a href="#cb2-55"></a>highlighter <span class="ot">&lt;-</span> </span>
+<span id="cb2-56"><a href="#cb2-56"></a>  <span class="fu">list</span>(</span>
+<span id="cb2-57"><a href="#cb2-57"></a>    <span class="at">lightgreen =</span> regex_cmc,</span>
+<span id="cb2-58"><a href="#cb2-58"></a>    <span class="at">cyan =</span> <span class="st">"(?i)(autonomy)"</span></span>
+<span id="cb2-59"><a href="#cb2-59"></a>    )</span>
+<span id="cb2-60"><a href="#cb2-60"></a></span>
+<span id="cb2-61"><a href="#cb2-61"></a><span class="co"># print out nicely formatted abstracts</span></span>
+<span id="cb2-62"><a href="#cb2-62"></a>abstract <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb2-63"><a href="#cb2-63"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1701</span><span class="sc">:</span><span class="dv">1744</span>) {</span>
+<span id="cb2-64"><a href="#cb2-64"></a>  abstract <span class="ot">&lt;-</span> <span class="fu">c</span>(abstract, knitr<span class="sc">::</span><span class="fu">knit_child</span>(<span class="st">'../etc/abstract_helper.qmd'</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb2-65"><a href="#cb2-65"></a>}</span>
+<span id="cb2-66"><a href="#cb2-66"></a><span class="in">```</span></span>
+<span id="cb2-67"><a href="#cb2-67"></a></span>
+<span id="cb2-68"><a href="#cb2-68"></a><span class="in">`r paste(abstract, collapse = '\n')`</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,67 @@
+---
+title: "Inspect Abstracts"
+author: "Felix Dietrich & Leonard Reinecke"
+date: "last-modified"
+categories:
+  - "Autonomy"
+  - "Digital Media"
+  - "Self-Determination"
+code-fold: true
+---
+
+```{r}
+#| label: inspect abstracts
+#| output: false
+#| message: false
+
+# libs
+library(tidyverse)
+library(RVerbalExpressions)
+
+# load data
+clean_papers <- read_rds("../data/clean_papers.rds")
+
+# define search term
+regex_cmc <-
+  rx_with_any_case() %>% 
+  rx_either_of(
+    "internet",
+    "cyber",
+    "online media",
+    "online communication",
+    "online social network",
+    "online communit",
+    "chat",
+    "email",
+    "computer-mediated",
+    "mobile phone",
+    "smartphone",
+    "instant mess",
+    "mobile mess",
+    "social media",
+    rx() %>% rx_find("social ") %>% rx_find("network") %>% rx_anything(mode = "lazy") %>% rx_find("site") %>% rx_anything(mode = "lazy"),
+    "information and communication technolog",
+    "facebook",
+    "instagram",
+    "snapchat",
+    "twitter",
+    "wechat",
+    "weibo",
+    "texting")
+
+# define highlighter
+highlighter <- 
+  list(
+    lightgreen = regex_cmc,
+    cyan = "(?i)(autonomy)"
+    )
+
+# print out nicely formatted abstracts
+abstract <- NULL
+for (i in 901:1000) {
+  abstract <- c(abstract, knitr::knit_child('../etc/abstract_helper.qmd', quiet = TRUE))
+}
+```
+
+`r paste(abstract, collapse = '\n')`
+
