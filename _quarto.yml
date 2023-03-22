@@ -62,6 +62,8 @@ website:
             text: "1601-1700"
           - href: "abstracts/abstracts_1701-1744.qmd"
             text: "1701-1744"
+          - href: "abstracts/abstracts_AI.qmd"
+            text: "AI"
 
 format:
   html:
