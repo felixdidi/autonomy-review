@@ -24,6 +24,8 @@ website:
             text: "Preprocessing"
           - href: tm.qmd
             text: "Topic Modeling"
+          - href: sdt.qmd
+            text: "SDT Focus"
       - section: "Abstracts"
         contents:
           - href: "abstracts/abstracts_1-100.qmd"
@@ -63,7 +65,9 @@ website:
           - href: "abstracts/abstracts_1701-1744.qmd"
             text: "1701-1744"
           - href: "abstracts/abstracts_AI.qmd"
-            text: "AI"
+            text: "AI Abstracts"
+          - href: "abstracts/abstracts_sdt.qmd"
+            text: "SDT Abstracts"
 
 format:
   html:
