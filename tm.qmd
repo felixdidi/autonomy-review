@@ -317,6 +317,32 @@ top_classification
 topic_docs <- inner_join(docs, top_classification) %>%
   relocate(topic, gamma, .after = doc_id)
 
+# save abstracts by topic
+# digital policy
+digital_policy <- topic_docs %>% 
+  filter(topic == 2 | topic == 12 | topic == 3)
+
+digital_pedagogy <- topic_docs %>% 
+  filter(topic == 6 | topic == 4 | topic == 13)
+
+digital_media_use <- topic_docs %>% 
+  filter(topic == 7 | topic == 8)
+
+machine_autonomy <- topic_docs %>% 
+  filter(topic == 14 | topic == 11)
+
+digital_power_structures <- topic_docs %>% 
+  filter(topic == 10)
+
+digital_workplace <- topic_docs %>% 
+  filter(topic == 5)
+
+adolescence <- topic_docs %>% 
+  filter(topic == 1)
+
+digital_healthcare <- topic_docs %>% 
+  filter(topic == 9)
+
 # get top concepts by topic
 top_topic_concepts <- topic_docs %>% 
   select(-concept_id, -concept_score, -concept_lecel, -concept_url) %>% 

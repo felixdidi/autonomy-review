@@ -68,6 +68,22 @@ website:
             text: "AI Abstracts"
           - href: "abstracts/abstracts_sdt.qmd"
             text: "SDT Abstracts"
+          - href: "abstracts/abstracts_digital_policy.qmd"
+            text: "Digital Policy Abstracts"
+          - href: "abstracts/abstracts_digital_pedagogy.qmd"
+            text: "Digital Pedagogy Abstracts"
+          - href: "abstracts/abstracts_digital_media_use.qmd"
+            text: "Digital Media Use Abstracts"
+          - href: "abstracts/abstracts_machine_autonomy.qmd"
+            text: "Machine Autonomy Abstracts"
+          - href: "abstracts/abstracts_digital_power_structures.qmd"
+            text: "Digital Power Structures Abstracts"
+          - href: "abstracts/abstracts_digital_workplace.qmd"
+            text: "Digital Workplace Abstracts"
+          - href: "abstracts/abstracts_adolescence.qmd"
+            text: "Adolescence Abstracts"
+          - href: "abstracts/abstracts_digital_healthcare.qmd"
+            text: "Digital Healthcare Abstracts"
 
 format:
   html:
