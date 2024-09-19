@@ -1,7 +1,6 @@
 ---
 title: "Topic Modeling"
-author: "Felix Dietrich & Leonard Reinecke"
-date: "last-modified"
+author: "Felix Dietrich, Anisha Arenz, & Leonard Reinecke"
 categories:
   - "Autonomy"
   - "Digital Media"
@@ -343,6 +342,18 @@ adolescence <- topic_docs %>%
 digital_healthcare <- topic_docs %>% 
   filter(topic == 9)
 
+# check if paper cites sdt
+sdt_papers <- read_rds("data/sdt_papers.rds")
+
+is_sdt_paper <-
+  topic_docs %>% 
+  mutate(
+    topic = str_c("Topic ", topic) %>% as_factor(),
+    is_sdt_paper = if_else(doc_id %in% sdt_papers$doc_id, 1, 0)
+    ) %>% 
+  group_by(topic) %>% 
+  summarise(percent_sdt = mean(is_sdt_paper))
+
 # get top concepts by topic
 top_topic_concepts <- topic_docs %>% 
   select(-concept_id, -concept_score, -concept_lecel, -concept_url) %>% 
@@ -386,7 +397,8 @@ topic_labels <-
   )
 
 # order by sum of gamma by manual topic
-top_topic_concepts_plot <- left_join(top_topic_concepts, topic_labels) %>% 
+top_topic_concepts_plot <- left_join(top_topic_concepts, topic_labels) %>%
+  left_join(is_sdt_paper) %>% 
   group_by(label) %>% 
   mutate(
     order = sum(gamma)
@@ -402,12 +414,13 @@ p1 <- top_topic_concepts_plot %>%
   scale_y_continuous(labels = scales::percent_format(),
                      limits = c(0, .15), position = "right",
                      breaks = c(0, .05, .1, .15)) +
-  labs(x = NULL, y = expression(gamma ~ " (Topic Prevalence)")) + 
+  labs(x = NULL, y = expression("Topic Prevalence " * gamma)) + 
   facet_grid(rows = vars(label), scales = "free_y", space = "free_y",
              labeller = labeller(label = label_wrap_gen(10)),
              switch = "y") +
   theme_bw() +
   theme(strip.text.y.left = element_text(angle = 0),
+        axis.title.x = element_text(hjust = 2),
         panel.grid = element_blank(),
         panel.border = element_blank())
 
@@ -448,8 +461,31 @@ p3 <- top_topic_concepts_plot %>%
         panel.grid = element_blank(),
         panel.border = element_blank())
 
-ggarrange(p1, p2, p3,
-          ncol = 3, nrow = 1,
-          widths = c(.6 , 1.7, .7))
+p4 <- top_topic_concepts_plot %>% 
+  ggplot(aes(topic, percent_sdt)) +
+  geom_col(show.legend = FALSE) +
+  geom_text(aes(label = str_c(round(percent_sdt * 100, 0), "%")), hjust = -.1) +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent_format(),
+                     limits = c(0, 1), position = "right",
+                     breaks = c(0, 1)) +
+  labs(x = NULL, y = "% cite SDT") + 
+  facet_grid(rows = vars(label), scales = "free_y", space = "free_y",
+             labeller = labeller(label = label_wrap_gen(10)),
+             switch = "y") +
+  theme_bw() +
+  theme(axis.line = element_blank(),
+       # axis.text.x = element_text(colour = "#ffffff"),
+        axis.text.y = element_text(colour = "#ffffff"),
+        axis.ticks = element_blank(),
+        axis.title.y = element_blank(),
+        strip.background.y = element_blank(),
+        strip.text.y = element_blank(),
+        panel.grid = element_blank(),
+        panel.border = element_blank())
+
+ggarrange(p1, p2, p3, p4,
+          ncol = 4, nrow = 1,
+          widths = c(.65 , 2.15, .85, .4))
 ```
 

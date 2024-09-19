@@ -1,7 +1,6 @@
 ---
 title: "SDT Focus"
-author: "Felix Dietrich & Leonard Reinecke"
-date: "last-modified"
+author: "Felix Dietrich, Anisha Arenz, & Leonard Reinecke"
 categories:
   - "Autonomy"
   - "Digital Media"

@@ -1,8 +1,7 @@
 ---
-title: "What constitutes autonomy in digital communication?"
-subtitle: "A scoping review of digital autonomy"
-author: "Felix Dietrich & Leonard Reinecke"
-date: "last-modified"
+title: "What Constitutes Experiences of Autonomy in Digital Technology Use?"
+subtitle: "A (Computational) Scoping Review through the Lens of Self-Determination Theory"
+author: "Felix Dietrich, Anisha Arenz, & Leonard Reinecke"
 categories:
   - "Autonomy"
   - "Digital Media"
@@ -21,8 +20,8 @@ csl: "bibliography/apa.csl"
 # uncomment r_refs() below if changes to packages have been made!
 
 # restore packages from renv.lock
-renv::activate()
-renv::restore(prompt = FALSE)
+# renv::activate()
+# renv::restore(prompt = FALSE)
 
 # load packages
 library(tidyverse)
